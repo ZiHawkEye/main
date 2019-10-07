@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>T.A.rence - Draft Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>T.A.rence - Draft Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -33,8 +33,21 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-adding-and-viewing-assignment-score-to-students">C.1. Use case: Adding and viewing assignment score to students</a></li>
+</ul>
+</li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#business-domain-rules">D.1. Business/Domain Rules:</a></li>
+<li><a href="#constraints">D.2. Constraints:</a></li>
+<li><a href="#technical-requirements">D.3. Technical Requirements:</a></li>
+<li><a href="#performance-requirements">D.4. Performance Requirements:</a></li>
+<li><a href="#quality-requirements">D.5. Quality Requirements:</a></li>
+<li><a href="#notes-about-project-scope">D.6. Notes about Project Scope:</a></li>
+</ul>
+</li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
@@ -628,7 +641,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>has a need to manage a significant number of tutorial classes</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -645,7 +658,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: manage TA-related tasks faster than a typical mouse/GUI driven app</p>
 </div>
 </div>
 </div>
@@ -673,39 +686,70 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mark students attendance easily on computer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not have to keep a physical record of it</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new student to my class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily track students without having to refer to LumiNUS</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stop referring to LumiNUS due to students periodically dropping classes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track students' performance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pay special attention to weaker students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily key in marks for assignments and mid-terms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view statistics such as mean and help the outlier students</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA with busy schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my available slots</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know when to schedule consultations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a contact list of professors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily contact them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA overloading</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compare my personal timetable with the scheduled tutorial slots</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan out any potential clashes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">share my schedules with my other TA friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assign a substitute TA if needed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track all guest &amp; students that crash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember to manually submit their attendance and/or assignments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep separate logs of the modules I taught for each semester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve any information from the
+previous semesters taught</p></td>
 </tr>
 </tbody>
 </table>
@@ -718,25 +762,22 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>T.A.rence application</code> and the <strong>Actor</strong> is the <code>TA user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-new-module-entry" class="discrete">Use case: New module entry</h3>
+<div class="paragraph">
+<p><strong>Pre-conditions</strong>: User selects the command to add a new module.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to add a new module</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>System adds new module.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -749,19 +790,562 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. The given module already exists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given module already exists.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
 <li>
-<p>3a. The given index is invalid.</p>
+<p>1b. The given input is in an invalid format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-new-tutorial-entry" class="discrete">Use case: New tutorial entry</h3>
+<div class="paragraph">
+<p>Precondition: User selects the command to add a new tutorial.
+<strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new tutorial to a selected module.</p>
+</li>
+<li>
+<p>System adds the tutorial to the given module.</p>
+</li>
+<li>
+<p>System displays the newly added tutorial to the tutorial list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>1a. The given tutorial already exists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message showing that the given tutorial already exists.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given module does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing that the given module does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given input is in an invalid format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-new-student-entry" class="discrete">Use case: New student entry</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong>: User selects the command to add a new student.
+<strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new student into the selected tutorial and module.</p>
+</li>
+<li>
+<p>System adds the new student into the selected tutorial and module.</p>
+</li>
+<li>
+<p>System displays the student&#8217;s particulars under the student list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given student already exists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given student already exists within the selected
+tutorial and module.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given tutorial does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message that the given tutorial does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given module does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System shows an error message that the given module does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1d. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1d1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-editing-a-student-s-particulars" class="discrete">Use case: Editing a student&#8217;s particulars</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong>: User selects the command to edit a student.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit the particulars of a given student.</p>
+</li>
+<li>
+<p>System edits student particulars.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given student does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given student does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-deleting-a-student" class="discrete">Use case: Deleting a student</h3>
+<div class="paragraph">
+<p><strong>Preconditions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Given tutorial and module exists in the system.</p>
+</li>
+<li>
+<p>User selects the command to delete a student.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request to delete a student from a particular tutorial and module.</p>
+</li>
+<li>
+<p>System prompts for confirmation with full details of student.</p>
+</li>
+<li>
+<p>User enters confirmation.</p>
+</li>
+<li>
+<p>System deletes student and shows confirmation.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given student does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given student does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-listing-students" class="discrete">Use case: Listing students</h3>
+<div class="paragraph">
+<p><strong>Preconditions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Given module exists in the system.</p>
+</li>
+<li>
+<p>User selects the command to list students of a particular tutorial class.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list a given selected tutorial class.</p>
+</li>
+<li>
+<p>System displays the class list for a given tutorial.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given tutorial does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given tutorial does not exist.</p>
+<div class="paragraph">
+<p>User case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-post-class-attendance" class="discrete">Use case: Post class attendance.</h3>
+<div class="paragraph">
+<p><strong>Preconditions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Given module exists in the system.</p>
+</li>
+<li>
+<p>User selects the command to mark a tutorial class' attendance.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to enter attendance for class for particular week.</p>
+</li>
+<li>
+<p>Application enters attendance for class in the given week.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given tutorial does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given tutorial does not exist.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given tutorial class already has its attendance marked for that week.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. Application shows an error message that the class already has its
+attendance marked for that week</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-adding-in-hours-clocked" class="discrete">Use case: Adding in hours clocked.</h3>
+<div class="paragraph">
+<p><strong>Preconditions:</strong>
+1. User selects the command to add in the hours.
+2. Given module exists in the system.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicates the tutorial class that has been completed for the week.</p>
+</li>
+<li>
+<p>System adds the given hours to the tutorial slot</p>
+</li>
+<li>
+<p>System displays response on the total number of hours clocked for the given tutorial</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given tutorial does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given tutorial does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The hours of the tutorial class for that week has already been clocked.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. Application shows an error message that the class already has its hours clocked
+for that week</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-and-viewing-assignment-score-to-students"><a class="link" href="#use-case-adding-and-viewing-assignment-score-to-students">C.1. Use case: Adding and viewing assignment score to students</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User selects the command to add assignment and its' scores to the student.</p>
+</li>
+<li>
+<p>Given module and tutorial exists in the system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User adds assignment to the tutorial class in the module.</p>
+</li>
+<li>
+<p>User adds the score for each student for the assignment.</p>
+</li>
+<li>
+<p>User switches to the student performance window.</p>
+</li>
+<li>
+<p>System displays results across semester for each student.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. One of the students does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. System shows an error message that the given student does not exist.</p>
+</li>
+<li>
+<p>Steps 2-2a2 are repeated for all invalid students.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2</p>
 </div>
 </li>
 </ul>
@@ -770,28 +1354,93 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><em>{More to be added soon. Stay tuned!}</em></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="business-domain-rules"><a class="link" href="#business-domain-rules">D.1. Business/Domain Rules:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>System should be able to handle multiple modules and tutorials</p>
+</li>
+<li>
+<p>Number of module and tutorial slots created should be of reasonable amount (&lt; 10)</p>
+</li>
+<li>
+<p>The application’s functionalities should be easily testable.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="constraints"><a class="link" href="#constraints">D.2. Constraints:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>System should be wholly usable by <a href="#CLI">C.L.I</a>. (No <a href="#GUI">G.U.I</a> -only functionality)</p>
+</li>
+<li>
+<p>The application should work without requiring an Internet connection.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="technical-requirements"><a class="link" href="#technical-requirements">D.3. Technical Requirements:</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="performance-requirements"><a class="link" href="#performance-requirements">D.4. Performance Requirements:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>System should be able to hold up to 100 students without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="quality-requirements"><a class="link" href="#quality-requirements">D.5. Quality Requirements:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
+should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>The application should work even if the user enters partial commands/data and data in
+different formats, or omits certain command prefixes.</p>
+</li>
+<li>
+<p>Product should be usable by someone who just became a Teaching Assistant.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="notes-about-project-scope"><a class="link" href="#notes-about-project-scope">D.6. Notes about Project Scope:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>System does not need to handle exporting or importing of data from other programs.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><em>{More to be added. Coming to stores near you!}</em></p>
+</div>
 </div>
 </div>
 </div>
@@ -804,9 +1453,29 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
+<dt class="hdlist1"><a id="ta"></a> TA</dt>
+<dd>
+<p>teaching assistant</p>
+</dd>
+<dt class="hdlist1"><a id="module"></a> module</dt>
+<dd>
+<p>A module that comes with an associated code in the form of [XXX1234Y]</p>
+</dd>
+<dt class="hdlist1"><a id="tutorial"></a> tutorial</dt>
+<dd>
+<p>A tutorial class conducted by a <a href="#ta">TA</a></p>
+</dd>
 <dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
 <dd>
 <p>A contact detail that is not meant to be shared with others</p>
+</dd>
+<dt class="hdlist1"><a id="CLI"></a> Command-Line Interface</dt>
+<dd>
+<p>An interface that only requires textual inputs.</p>
+</dd>
+<dt class="hdlist1"><a id="GUI"></a> Graphical User Inferface</dt>
+<dd>
+<p>An interface that requires the use of graphics such as the use of the mouse pointer.</p>
 </dd>
 </dl>
 </div>
@@ -958,4 +1627,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-23 08:24:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-07 09:32:55 UTC</div></div></div></body></html>

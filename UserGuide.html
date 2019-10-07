@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>T.A.rence - Draft User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>T.A.rence - Draft User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>AY1920S1-CS2103-T14-2</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,20 +13,31 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing Help : <code>help</code></a></li>
+<li><a href="#adding-a-mdule-code-addmodule-code">3.2. Adding a Mdule: <code>addModule</code></a></li>
+<li><a href="#adding-a-tutorial-slot-code-addtutorial-code">3.3. Adding a Tutorial Slot : <code>addTutorial</code></a></li>
+<li><a href="#adding-a-student-code-addstudent-code">3.4. Adding a Student : <code>addStudent</code></a></li>
+<li><a href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.5. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></li>
+<li><a href="#editing-a-student-code-editstudent-code-coming-in-v2-0">3.6. Editing a Student : <code>editStudent</code> [coming in v2.0]</a></li>
+<li><a href="#searching-student-by-name-code-find-code-coming-in-v2-0">3.7. Searching Student by Name: <code>find</code> [coming in v2.0]</a></li>
+<li><a href="#deleting-a-student-code-delete-code-coming-in-v2-0">3.8. Deleting a Student : <code>delete</code> [coming in v2.0]</a></li>
+<li><a href="#listing-students-from-a-tutorial-code-list-code-coming-in-v2-0">3.9. Listing Students from a Tutorial : <code>list</code> [coming in v2.0]</a></li>
+<li><a href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.10. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.11. Clearing all entries : <code>clear</code> [coming in v2.0]</a></li>
+<li><a href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.12. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></li>
+<li><a href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.13. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></li>
+<li><a href="#display-tutorial-class-test-results-code-display-code-coming-in-v2-0">3.14. Display Tutorial Class' Test Results : <code>display</code> [coming in v2.0]</a></li>
+<li><a href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.15. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#command-summary">5. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#commands-coming-in-v2-0">5.1. Commands coming in v2.0</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -34,7 +45,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>T.A.rence is for Teaching Assistants (TAs) who prefer to use a desktop app for managing their TA responsibilities.
+T.A.rence is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI)
+while still having the benefits of a Graphical User Interface (GUI).
+If you can type fast, T.A.rence can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -47,7 +61,7 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/Ellieyee/main/releases">here</a>.</p>
+<p>Download the latest <code>.jar</code> <a href="{URL}/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -56,7 +70,7 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/UiMock.png" alt="UiMock" width="790">
 </div>
 </div>
 </li>
@@ -69,13 +83,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>list</code></strong> : lists all contacts <code>[coming in v2.0]</code></p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com m/CS2100, tn/Tutorial-01</code> : adds a student named <code>John Doe</code> into the <code>Tutorial-01</code> class inside module <code>CS2100</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the student <code>[coming in v2.0]</code></p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -104,41 +118,23 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
-</li>
-<li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME e/EMAIL</code>, <code>e/EMAIL n/NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing Help : <code>help</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-a-mdule-code-addmodule-code"><a class="link" href="#adding-a-mdule-code-addmodule-code">3.2. Adding a Mdule: <code>addModule</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME e/EMAIL&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
+<p>Adds a module to T.A.rence.<br>
+Format: <code>addModule m/MODULE_CODE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -146,71 +142,91 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>addModule m/CS1010</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>addModule m/ST2132</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="adding-a-tutorial-slot-code-addtutorial-code"><a class="link" href="#adding-a-tutorial-slot-code-addtutorial-code">3.3. Adding a Tutorial Slot : <code>addTutorial</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Adds a tutorial slot into the specified module.<br>
+Pre-condition: Module must already exist inside application. <br></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>addTutorial tn/TUTORIAL_NAME st/START_TIME dur/TUTORIAL_DURATION d/TUTORIAL_DAY w/TUTORIAL_WEEKS m/MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>addTutorial tn/Tutorial-01 st/1300 dur/60 d/Mon w/1,2,3 m/CS1010S</code></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Explanation: Adds a tutorial slot called <code>Tutorial-01</code> which starts at <code>1300</code>, lasts for <code>60</code> minutes,
+             occurs every <code>Mon</code> during weeks <code>1,2,3</code> into module <code>CS1010</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-student-code-addstudent-code"><a class="link" href="#adding-a-student-code-addstudent-code">3.4. Adding a Student : <code>addStudent</code></a></h3>
+<div class="paragraph">
+<p>Adds a student into a specified tutorial.<br>
+Pre-condition: Module and tutorial slot must already exist inside the application.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addStudent n/NAME e/EMAIL mat/MATRICULATION_NUMBER nusid/NUSNET_ID tn/TUTORIAL_NAME m/MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>addStudent n/Bob e/bob@gmail.com mat/A1234567Z1 nusid/E1234567 m/CS1010S tn/Tutorial-01</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Explanation: Adds a student called 'Bob'; with matriculation number <code>A1234567Z1 and NUS ID `E1234567</code> into the
+             tutorial slot called <code>Tutorial-01</code> for module <code>CS1O1O</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-assignment-code-addassignment-code-coming-in-v2-0"><a class="link" href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.5. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="editing-a-student-code-editstudent-code-coming-in-v2-0"><a class="link" href="#editing-a-student-code-editstudent-code-coming-in-v2-0">3.6. Editing a Student : <code>editStudent</code> [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Allows user to edit an existing student information</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>editStudent n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editStudent n/Ben n/Ben Leong</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="searching-student-by-name-code-find-code-coming-in-v2-0"><a class="link" href="#searching-student-by-name-code-find-code-coming-in-v2-0">3.7. Searching Student by Name: <code>find</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Searches and displays student particulars based on name. The search can be based on partial strings that match
+and need not be the full name of the student.<br>
+Format: <code>find n\[SEARCH_TERM]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -241,7 +257,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
+<p><code>find n\John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
@@ -252,7 +268,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-student-code-delete-code-coming-in-v2-0"><a class="link" href="#deleting-a-student-code-delete-code-coming-in-v2-0">3.8. Deleting a Student : <code>delete</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -293,30 +309,75 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="listing-students-from-a-tutorial-code-list-code-coming-in-v2-0"><a class="link" href="#listing-students-from-a-tutorial-code-list-code-coming-in-v2-0">3.9. Listing Students from a Tutorial : <code>list</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Lists all students from a particular tutorial slot.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list c/TUTORIAL_NAME</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="undo-previously-entered-commands-code-undo-code-coming-in-v2-0"><a class="link" href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.10. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code-coming-in-v2-0"><a class="link" href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.11. Clearing all entries : <code>clear</code> [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Clears all entries from the address book.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mark-participation-for-a-student-code-classpart-code-coming-in-v2-0"><a class="link" href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.12. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Gives participation marks to a student of a particular tutorial slot</p>
+</div>
+<div class="paragraph">
+<p>Format: `classPart c/[TUTORIAL_NAME] n/[STUDENT_NAME]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="store-a-student-s-results-code-addmarks-code-coming-in-v2-0"><a class="link" href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.13. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Allows user to add test results of a student of a particular tutorial slot</p>
+</div>
+<div class="paragraph">
+<p>Format: `addMarks c/[TUTORIAL_NAME] n/[STUDENT_NAME] marks/[MARK_OBTAINED]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-tutorial-class-test-results-code-display-code-coming-in-v2-0"><a class="link" href="#display-tutorial-class-test-results-code-display-code-coming-in-v2-0">3.14. Display Tutorial Class' Test Results : <code>display</code> [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Allows user to display overall results (graph) for an exam</p>
+</div>
+<div class="paragraph">
+<p>Format: `display c/[TUTORIAL_NAME]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-personal-notes-to-a-student-code-note-code-coming-in-v2-0"><a class="link" href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.15. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Allows user to add personal notes about class or feedback received by students.</p>
+</div>
+<div class="paragraph">
+<p>Format: `note t/[NOTES]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-the-data-coming-in-v2-0"><a class="link" href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -336,19 +397,39 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add Module</strong> <code>addModule m/MODULE_CODE</code><br>
+e.g. <code>add m/CS1010</code></p>
 </li>
+<li>
+<p><strong>Add Tutorial</strong> <code>addTutorial tn/TUTORIAL_NAME st/START_TIME dur/TUTORIAL_DURATION d/TUTORIAL_DAY w/TUTORIAL_WEEKS m/MODULE_CODE</code></p>
+<div class="paragraph">
+<p>e.g. <code>addStudent n/Bob e/bob@gmail.com mat/A1234567Z1 nusid/E1234567 m/CS1010S tn/Tutorial-01</code></p>
+</div>
+</li>
+<li>
+<p><strong>Add Student</strong> <code>addStudent n/NAME e/EMAIL mat/MATRICULATION_NUMBER nusid/NUSNET_ID tn/TUTORIAL_NAME m/MODULE_CODE</code></p>
+<div class="paragraph">
+<p>e.g. <code>addStudent n/Bob e/bob@gmail.com mat/A1234567Z1 nusid/E1234567 m/CS1010S tn/Tutorial-01</code></p>
+</div>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="commands-coming-in-v2-0"><a class="link" href="#commands-coming-in-v2-0">5.1. Commands coming in v2.0</a></h3>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
 e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -358,9 +439,11 @@ e.g. <code>find James Jake</code></p>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Add Assignment</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-23 08:24:01 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-07 09:32:55 UTC</div></div></div></body></html>
