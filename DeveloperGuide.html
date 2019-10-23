@@ -22,11 +22,16 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#autocorrect-feature">3.1. Autocorrect feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#add-student-feature">3.1. Add Student feature</a></li>
+<li><a href="#edit-feature">3.2. Edit feature</a></li>
+<li><a href="#autocorrect-feature">3.3. Autocorrect feature</a></li>
+<li><a href="#autocomplete-feature">3.4. Autocomplete feature</a></li>
+<li><a href="#list-feature">3.5. list feature</a></li>
+<li><a href="#mark-attendance-feature">3.6. Mark Attendance feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -344,12 +349,153 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="autocorrect-feature"><a class="link" href="#autocorrect-feature">3.1. Autocorrect feature</a></h3>
+<h3 id="add-student-feature"><a class="link" href="#add-student-feature">3.1. Add Student feature</a></h3>
+<div class="paragraph">
+<p>The <code>AddStudent</code> command lets T.A.rence add a student into the specified module and tutorial.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>AddStudent</code> command must include the name, email, tutorial and module. The tutorial and module can be indicated by the index of the tutorial. Optionally, the user
+can also choose to indicate the student&#8217;s matric number and nusnetid.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user uses both the indexing and full input format, the command will throw an error due to ambiguity.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>AddStudent</code> command will also automatically be updated within the application&#8217;s storage system and the new student will be reflected in the application&#8217;s GUI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram shows the process of invoking the <code>AddStudent</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStudentCommandActivityDiagram.png" alt="AddStudentCommandActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStudentCommandSequenceDiagram.png" alt="AddStudentCommandSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">3.2. Edit feature</a></h3>
+<div class="paragraph">
+<p>The <code>edit</code> feature aims to help users update student details in our application.
+When there are changes to be made for a student (e.g. updating their email or adding a matric number),
+users will want to be able to update their student&#8217;s details easily without going through the hassle of deleting and adding new student information.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>edit</code> command must include one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Email</p>
+</li>
+<li>
+<p>Matric number</p>
+</li>
+<li>
+<p>NusnetID</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The user is not allowed to change the tutorial or module that the student is in.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>edit</code> command will also automatically be updated within the application&#8217;s storage system and the new student&#8217;s details will be reflected in the application&#8217;s GUI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCommandSequenceDiagram.png" alt="EditCommandSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-edit-executes"><a class="link" href="#aspect-how-edit-executes">Aspect: How edit executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deletes old copy of and adds new modified copy</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of time complexity.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Modify the existing version of the student directly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory</p>
+</li>
+<li>
+<p>Cons: Will have to go through each of the student/tutorial/module lists and update them. Which involves many layers of looping (higher chance of regressions).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocorrect-feature"><a class="link" href="#autocorrect-feature">3.3. Autocorrect feature</a></h3>
 <div class="paragraph">
 <p>Autocorrect lets T.A.rence find similar commands to the user&#8217;s input, allowing it to catch minor typing mistakes.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocorrect is implemented at the <code>Command</code> level: when <code>Command</code> objects are executed, they attempt to find their data values from the application&#8217;s storage. If these values are not found, they search for lexically similar alternatives, and construct new `Command`s with these suggested values. The user is then prompted to choose one of these suggestions via a single numerical input.</p>
 </div>
@@ -383,12 +529,152 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <img src="images/AutocorrectSequence.png" alt="AutocorrectSequence">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentCommand</code> should end at their destroy markers (X) but due to a limitation of PlantUML, the lifelines reach the end of diagram.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">3.4. Autocomplete feature</a></h3>
+<div class="paragraph">
+<p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Autocomplete is implemented at the <code>Parser</code> level. When the user presses the "TAB" key, <code>AutoCompleteHandler</code>  handles the processing of the input, as opposed to <code>ApplicationParser</code> when the "ENTER" key is pressed.</p>
+</div>
+<div class="paragraph">
+<p><code>PartialInputParser#parse</code> is responsible for the actual parsing of the input string. It calls <code>ArgumentTokenizer#tokenizeLastArgument</code> to find only the last present prefix and its associated value, then uses the appropriate method in <code>Finder</code> to get a list of all values corresponding to the prefix type in the application that begin with the detected partial input. Should this prefix be one not supported by Autocomplete (e.g. <code>i/</code> for a purely numerical input), an error message is shown to the user.</p>
+</div>
+<div class="paragraph">
+<p><code>AutocompleteHandler#handle</code> is responsible for determining the correct autofilled string. If the user presses "TAB" multiple times successively, it cycles through the available autofill options; otherwise, it gets the list of options from <code>PartialInputParser</code> and returns the first one. The activity flow is summarised below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutocompleteActivity.png" alt="AutocompleteActivity">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-feature"><a class="link" href="#list-feature">3.5. list feature</a></h3>
+<div class="paragraph">
+<p>The <code>list</code> command lets T.A.rence display all students or students from a specific tutorial.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>list</code> command can include no additional input, or the index of the tutorial. When the user executes the <code>list</code> command, the following steps are taken by the application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The CommandParser determines the format of user input. If not input is provided, all students are displayed.</p>
+</li>
+<li>
+<p>When the <code>list</code> class is invoked, it will perform the following actions before displaying the output to the user:</p>
+</li>
+<li>
+<p>Obtains a list of tutorials from the model and filters through the students which belong to the indicated tutorial of choice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram shows the process of invoking the <code>list</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListCommandActivityDiagram.png" alt="ListCommandActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListCommandSequenceDiagram.png" alt="ListCommandSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mark-attendance-feature"><a class="link" href="#mark-attendance-feature">3.6. Mark Attendance feature</a></h3>
+<div class="paragraph">
+<p>The <code>MarkAttendance</code> command lets T.A.rence mark the attendance of a specified student in a tutorial.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>MarkAttendance</code> command must include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The week of the tutorial</p>
+</li>
+<li>
+<p>Tutorial name</p>
+</li>
+<li>
+<p>Module code</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the index of the tutorial can be used in place of the tutorial name and module code.
+Optionally, the user can also choose to indicate the student&#8217;s name.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user uses both the indexing and full input format, the command will throw an error due to ambiguity.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>MarkAttendance</code> command will also automatically be updated within the application&#8217;s storage system and the updated attendance will be reflected in the application&#8217;s GUI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram showing the process of invoking the <code>MarkAttendance</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MarkAttendanceActivityDiagram.png" alt="MarkAttendanceActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStudentCommandSequenceDiagram.png" alt="AddStudentCommandSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -530,7 +816,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -600,20 +886,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -644,7 +930,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1670,4 +1956,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 08:29:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:48:41 UTC</div></div></div></body></html>
