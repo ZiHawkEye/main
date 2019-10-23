@@ -20,7 +20,7 @@
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation-2">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-student-feature">3.1. Add Student feature</a></li>
 <li><a href="#edit-feature">3.2. Edit feature</a></li>
@@ -329,21 +329,45 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the <code>T.A.rence</code> application data in json format and read it back.</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">2.5.1. Implementation</a></h4>
+<div class="paragraph">
+<p>When the application is being saved, a list of modules will be serialized into a Json object and written to the file.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Although the application has 3 core components (modules, tutorials and students), to prevent redundant data being written
+and save on storage space, only the modules will be serialized and saved.</p>
+</div>
+<div class="paragraph">
+<p>This is as the information encapsulated in modules can be used to instantiate tutorial and student objects.</p>
+</div>
+<div class="paragraph">
+<p>A key assumption here is that during the operational usage of the application, data stored in the tutorials and students objects
+correspond to the module object. Ie there are no tutorials or student objects which exist without a corresponding
+module object.</p>
+</div>
+<div class="paragraph">
+<p>Future versions of storage will support saving of Assignment objects.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.tarence.commons</code> package.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation-2"><a class="link" href="#implementation-2">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
@@ -354,7 +378,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>The <code>AddStudent</code> command lets T.A.rence add a student into the specified module and tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>AddStudent</code> command must include the name, email, tutorial and module. The tutorial and module can be indicated by the index of the tutorial. Optionally, the user
 can also choose to indicate the student&#8217;s matric number and nusnetid.</p>
@@ -404,7 +428,7 @@ When there are changes to be made for a student (e.g. updating their email or ad
 users will want to be able to update their student&#8217;s details easily without going through the hassle of deleting and adding new student information.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command must include one of the following:</p>
 </div>
@@ -453,7 +477,7 @@ The user is not allowed to change the tutorial or module that the student is in.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-edit-executes"><a class="link" href="#aspect-how-edit-executes">Aspect: How edit executes</a></h5>
 <div class="ulist">
@@ -495,7 +519,7 @@ The user is not allowed to change the tutorial or module that the student is in.
 <p>Autocorrect lets T.A.rence find similar commands to the user&#8217;s input, allowing it to catch minor typing mistakes.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocorrect is implemented at the <code>Command</code> level: when <code>Command</code> objects are executed, they attempt to find their data values from the application&#8217;s storage. If these values are not found, they search for lexically similar alternatives, and construct new `Command`s with these suggested values. The user is then prompted to choose one of these suggestions via a single numerical input.</p>
 </div>
@@ -549,7 +573,7 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocomplete is implemented at the <code>Parser</code> level. When the user presses the "TAB" key, <code>AutoCompleteHandler</code>  handles the processing of the input, as opposed to <code>ApplicationParser</code> when the "ENTER" key is pressed.</p>
 </div>
@@ -572,7 +596,7 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <p>The <code>list</code> command lets T.A.rence display all students or students from a specific tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>list</code> command can include no additional input, or the index of the tutorial. When the user executes the <code>list</code> command, the following steps are taken by the application:</p>
 </div>
@@ -613,7 +637,7 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <p>The <code>MarkAttendance</code> command lets T.A.rence mark the attendance of a specified student in a tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>MarkAttendance</code> command must include the following:</p>
 </div>
@@ -816,7 +840,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1956,4 +1980,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:48:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:51:15 UTC</div></div></div></body></html>
