@@ -14,7 +14,7 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing Help : <code>help</code></a></li>
-<li><a href="#adding-a-mdule-code-addmodule-code">3.2. Adding a Mdule: <code>addModule</code></a></li>
+<li><a href="#adding-a-module-code-addmodule-code">3.2. Adding a Module: <code>addModule</code></a></li>
 <li><a href="#adding-a-tutorial-slot-code-addtutorial-code">3.3. Adding a Tutorial Slot : <code>addTutorial</code></a></li>
 <li><a href="#adding-a-student-code-addstudent-code">3.4. Adding a Student : <code>addStudent</code></a></li>
 <li><a href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.5. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></li>
@@ -32,10 +32,16 @@
 <li><a href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a>
+<li><a href="#enhancements">4. Enhancements</a>
 <ul class="sectlevel2">
-<li><a href="#commands-coming-in-v2-0">5.1. Commands coming in v2.0</a></li>
+<li><a href="#autocorrect">4.1. Autocorrect</a></li>
+<li><a href="#autocomplete">4.2. Autocomplete</a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#commands-coming-in-v2-0">6.1. Commands coming in v2.0</a></li>
 </ul>
 </li>
 </ul>
@@ -115,10 +121,19 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user; e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME e/EMAIL</code>, <code>e/EMAIL n/NAME</code> is also acceptable.</p>
+</li>
+<li>
+<p>Inputs for parameters (apart from student names) are case-insensitive; e.g. <code>addModule m/Cs1010s</code> saves the module as "CS1010S" and <code>m/cs1010s</code> will subsequently refer to the same module.</p>
+</li>
+<li>
+<p>Command names are also case-insensitive; e.g. <code>addTutorial</code> and <code>addtutorial</code>  are equivalent.</p>
+</li>
+<li>
+<p>Longer commands can be truncated; e.g. <code>delstu</code>  can be entered instead of <code>deleteStudent</code>.</p>
 </li>
 </ul>
 </div>
@@ -131,7 +146,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-mdule-code-addmodule-code"><a class="link" href="#adding-a-mdule-code-addmodule-code">3.2. Adding a Mdule: <code>addModule</code></a></h3>
+<h3 id="adding-a-module-code-addmodule-code"><a class="link" href="#adding-a-module-code-addmodule-code">3.2. Adding a Module: <code>addModule</code></a></h3>
 <div class="paragraph">
 <p>Adds a module to T.A.rence.<br>
 Format: <code>addModule m/MODULE_CODE</code></p>
@@ -170,8 +185,31 @@ Pre-condition: Module must already exist inside application. <br></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Explanation: Adds a tutorial slot called <code>Tutorial-01</code> which starts at <code>1300</code>, lasts for <code>60</code> minutes,
-             occurs every <code>Mon</code> during weeks <code>1,2,3</code> into module <code>CS1010</code>.</p>
+<p>Explanation: Adds a tutorial called Tutorial-01 which starts at 1PM, lasts for 60 minutes,
+             and occurs every Monday during weeks 1,2, and 3 into module CS1010.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Other input options for <code>weeks</code> field:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>w/even</code> - weeks 4, 6, 8, 10, 12</p>
+</li>
+<li>
+<p><code>w/odd</code> - weeks 3, 5, 7, 9, 11, 13</p>
+</li>
+<li>
+<p><code>w/x-y</code> - weeks x to y inclusive, where x and y are integers from 1 to 13 inclusive</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Omit <code>w/</code> field for the default tutorial weeks (3-13 inclusive).</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -181,7 +219,7 @@ Pre-condition: Module must already exist inside application. <br></p>
 Pre-condition: Module and tutorial slot must already exist inside the application.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addStudent n/NAME e/EMAIL mat/MATRICULATION_NUMBER nusid/NUSNET_ID tn/TUTORIAL_NAME m/MODULE_CODE</code></p>
+<p>Format: <code>addStudent n/NAME e/EMAIL tn/TUTORIAL_NAME m/MODULE_CODE</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -189,13 +227,25 @@ Pre-condition: Module and tutorial slot must already exist inside the applicatio
 <div class="ulist">
 <ul>
 <li>
-<p><code>addStudent n/Bob e/bob@gmail.com mat/A1234567Z1 nusid/E1234567 m/CS1010S tn/Tutorial-01</code></p>
+<p><code>addStudent n/Bob e/bob@gmail.com m/CS1010S tn/Tutorial-01</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Explanation: Adds a student called 'Bob'; with matriculation number <code>A1234567Z1 and NUS ID `E1234567</code> into the
-             tutorial slot called <code>Tutorial-01</code> for module <code>CS1O1O</code>.</p>
+<p>Explanation: Adds a student named Bob into Tutorial-01 under module CS1010.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Optionally, the student&#8217;s matriculation number and/or NUSNET ID can also be specified and saved:</p>
+</div>
+<div class="paragraph">
+<p><code>addStudent n/Bob e/bob@gmail.com m/CS1010S tn/Tutorial-01 A0123456X E9876543</code></p>
+</div>
+<div class="paragraph">
+<p>No prefixes are needed for these additional fields.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -376,23 +426,61 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data-coming-in-v2-0"><a class="link" href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>All data in T.A.rence is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="enhancements"><a class="link" href="#enhancements">4. Enhancements</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p>T.A.rence contains a few input correction features to enhance usability.</p>
+</div>
+<div class="sect2">
+<h3 id="autocorrect"><a class="link" href="#autocorrect">4.1. Autocorrect</a></h3>
+<div class="paragraph">
+<p>If invalid parameters are detected in the command input, T.A.rence tries to suggest similar alternatives that can be selected and run without having to retype the entire command.</p>
+</div>
+<div class="paragraph">
+<p>E.g. given input</p>
+</div>
+<div class="paragraph">
+<p><code>addTutorial tn/Tut01 m/GET1000 &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>T.A.rence might respond:</p>
+</div>
+<div class="paragraph">
+<p><code>No such module found. Did you mean: 1. GER1000</code></p>
+</div>
+<div class="paragraph">
+<p>Entering the number 1 runs the command <code>addTutorial tn/Tut01 m/GER1000 &#8230;&#8203;</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">4.2. Autocomplete</a></h3>
+<div class="paragraph">
+<p>Similar to other CLI programs such as Windows' Command Prompt and MacOS' Terminal, pressing the "TAB" key will autofill the current field with data from the application. Pressing "TAB" repeatedly cycles through the different possible values.</p>
+</div>
+<div class="paragraph">
+<p>E.g.: with <code>addTutorial m/GE</code> in the input box, pressing "TAB" changes the value to <code>addTutorial m/GER1000</code>, <code>addTutorial m/GEQ1000</code>, etc., depending on which modules beginning with "GE" were previously added to the application.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous T.A.rence folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -421,7 +509,7 @@ e.g. <code>add m/CS1010</code></p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="commands-coming-in-v2-0"><a class="link" href="#commands-coming-in-v2-0">5.1. Commands coming in v2.0</a></h3>
+<h3 id="commands-coming-in-v2-0"><a class="link" href="#commands-coming-in-v2-0">6.1. Commands coming in v2.0</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -446,4 +534,4 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 10:00:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 10:07:35 UTC</div></div></div></body></html>
