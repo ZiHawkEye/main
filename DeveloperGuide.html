@@ -215,9 +215,9 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicRegularCommandClassDiagram.png" alt="LogicRegularCommandClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 5. Structure of the Logic Component (for regular commands only)</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -521,6 +521,12 @@ The user is not allowed to change the tutorial or module that the student is in.
 <div class="paragraph">
 <p>Autocorrect lets T.A.rence find similar commands to the user&#8217;s input, allowing it to catch minor typing mistakes.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicAutocorrectClassDiagram.png" alt="LogicAutocorrectClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of the Autocorrect portion of the Logic component</div>
+</div>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">3.3.1. Implementation</a></h4>
 <div class="paragraph">
@@ -574,6 +580,12 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 <h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">3.4. Autocomplete feature</a></h3>
 <div class="paragraph">
 <p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicAutocompleteClassDiagram.png" alt="LogicAutocompleteClassDiagram">
+</div>
+<div class="title">Figure 10. Structure of the Autocomplete portion of the Logic component</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">3.4.1. Implementation</a></h4>
@@ -1983,4 +1995,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 09:00:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 07:32:56 UTC</div></div></div></body></html>
