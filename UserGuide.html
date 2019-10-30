@@ -17,19 +17,23 @@
 <li><a href="#adding-a-module-code-addmodule-code">3.2. Adding a Module: <code>addModule</code></a></li>
 <li><a href="#adding-a-tutorial-slot-code-addtutorial-code">3.3. Adding a Tutorial Slot : <code>addTutorial</code></a></li>
 <li><a href="#adding-a-student-code-addstudent-code">3.4. Adding a Student : <code>addStudent</code></a></li>
-<li><a href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.5. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></li>
-<li><a href="#editing-a-student-code-editstudent-code-coming-in-v2-0">3.6. Editing a Student : <code>editStudent</code> [coming in v2.0]</a></li>
-<li><a href="#searching-student-by-name-code-find-code-coming-in-v2-0">3.7. Searching Student by Name: <code>find</code> [coming in v2.0]</a></li>
-<li><a href="#deleting-a-student-code-delete-code-coming-in-v2-0">3.8. Deleting a Student : <code>delete</code> [coming in v2.0]</a></li>
-<li><a href="#listing-students-from-a-tutorial-code-list-code-coming-in-v2-0">3.9. Listing Students from a Tutorial : <code>list</code> [coming in v2.0]</a></li>
-<li><a href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.10. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></li>
-<li><a href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.11. Clearing all entries : <code>clear</code> [coming in v2.0]</a></li>
-<li><a href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.12. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></li>
-<li><a href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.13. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></li>
-<li><a href="#display-tutorial-class-test-results-code-display-code-coming-in-v2-0">3.14. Display Tutorial Class' Test Results : <code>display</code> [coming in v2.0]</a></li>
-<li><a href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.15. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></li>
+<li><a href="#deleting-a-module-code-deletemodule-code">3.5. Deleting a Module : <code>deleteModule</code></a></li>
+<li><a href="#deleting-a-tutorial-code-deletetutorial-code">3.6. Deleting a Tutorial : <code>deleteTutorial</code></a></li>
+<li><a href="#deleting-a-student-code-deletestudent-code">3.7. Deleting a Student : <code>deleteStudent</code></a></li>
+<li><a href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.8. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></li>
+<li><a href="#editing-a-student-code-edit-code">3.9. Editing a Student : <code>edit</code></a></li>
+<li><a href="#searching-student-by-name-code-find-code">3.10. Searching Student by Name: <code>find</code></a></li>
+<li><a href="#display-tutorial-class-test-results-code-displayscore-code">3.11. Display Tutorial Class' Test Results : <code>displayScore</code></a></li>
+<li><a href="#display-tutorial-class-attendance-code-displayattendance-code">3.12. Display Tutorial Class' Attendance : <code>displayAttendance</code></a></li>
+<li><a href="#listing-students-from-a-tutorial-code-list-code">3.13. Listing Students from a Tutorial : <code>list</code></a></li>
+<li><a href="#changing-the-ui-tab-code-cd-code">3.14. Changing the UI tab : <code>cd</code></a></li>
+<li><a href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.15. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></li>
+<li><a href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.16. Clearing all entries : <code>clear</code> [coming in v2.0]</a></li>
+<li><a href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.17. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></li>
+<li><a href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.18. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></li>
+<li><a href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.19. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data-coming-in-v2-0">3.21. Saving the data [coming in v2.0]</a></li>
 </ul>
 </li>
 <li><a href="#enhancements">4. Enhancements</a>
@@ -76,7 +80,7 @@ If you can type fast, T.A.rence can get your contact management tasks done faste
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiMock.png" alt="UiMock" width="790">
+<img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
 </li>
@@ -89,13 +93,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts <code>[coming in v2.0]</code></p>
+<p><strong><code>list</code></strong> : lists all students from a given tutorial.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com m/CS2100, tn/Tutorial-01</code> : adds a student named <code>John Doe</code> into the <code>Tutorial-01</code> class inside module <code>CS2100</code>.</p>
+<p><strong><code>addStudent</code></strong><code>n/John Doe e/johnd@example.com m/CS2100, tn/Tutorial-01</code> : adds a student named <code>John Doe</code> into the <code>Tutorial-01</code> class inside module <code>CS2100</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the student <code>[coming in v2.0]</code></p>
+<p><strong><code>deleteStudent</code></strong><code>3</code> : deletes the student in index 3</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -249,16 +253,134 @@ Pre-condition: Module and tutorial slot must already exist inside the applicatio
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-assignment-code-addassignment-code-coming-in-v2-0"><a class="link" href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.5. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></h3>
+<h3 id="deleting-a-module-code-deletemodule-code"><a class="link" href="#deleting-a-module-code-deletemodule-code">3.5. Deleting a Module : <code>deleteModule</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing module from T.A.rence, based on it&#8217;s module list index.<br>
+Format: <code>deleteModule INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the module at the specified <code>INDEX</code> (Based off the module list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed module list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the students and tutorials inside the module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteModule 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-tutorial-code-deletetutorial-code"><a class="link" href="#deleting-a-tutorial-code-deletetutorial-code">3.6. Deleting a Tutorial : <code>deleteTutorial</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing tutorial from T.A.rence, based on it&#8217;s tutorial list index.<br>
+Format: <code>deleteTutorial INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the tutorial at the specified <code>INDEX</code> (Based off the tutorial list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed tutorial list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the tutorial from the existing module and students who are in the tutorial.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteTutorial 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-student-code-deletestudent-code"><a class="link" href="#deleting-a-student-code-deletestudent-code">3.7. Deleting a Student : <code>deleteStudent</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing student from T.A.rence, based on their student list index.<br>
+Format: <code>deleteStudent INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the student at the specified <code>INDEX</code> (Based off the student list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed student list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the student from the existing tutorial/module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list 2</code><br>
+<code>deleteStudent 2</code><br>
+Deletes the 2nd student in the 2nd tutorial.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>deleteStudent 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-assignment-code-addassignment-code-coming-in-v2-0"><a class="link" href="#adding-an-assignment-code-addassignment-code-coming-in-v2-0">3.8. Adding an Assignment : <code>addAssignment</code> [coming in v2.0]</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="editing-a-student-code-editstudent-code-coming-in-v2-0"><a class="link" href="#editing-a-student-code-editstudent-code-coming-in-v2-0">3.6. Editing a Student : <code>editStudent</code> [coming in v2.0]</a></h3>
+<h3 id="editing-a-student-code-edit-code"><a class="link" href="#editing-a-student-code-edit-code">3.9. Editing a Student : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Allows user to edit an existing student information</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editStudent n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
+<p>Format: <code>edit n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -266,13 +388,13 @@ Pre-condition: Module and tutorial slot must already exist inside the applicatio
 <div class="ulist">
 <ul>
 <li>
-<p><code>editStudent n/Ben n/Ben Leong</code></p>
+<p><code>edit n/Ben n/Ben Leong</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="searching-student-by-name-code-find-code-coming-in-v2-0"><a class="link" href="#searching-student-by-name-code-find-code-coming-in-v2-0">3.7. Searching Student by Name: <code>find</code> [coming in v2.0]</a></h3>
+<h3 id="searching-student-by-name-code-find-code"><a class="link" href="#searching-student-by-name-code-find-code">3.10. Searching Student by Name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Searches and displays student particulars based on name. The search can be based on partial strings that match
 and need not be the full name of the student.<br>
@@ -318,61 +440,105 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-student-code-delete-code-coming-in-v2-0"><a class="link" href="#deleting-a-student-code-delete-code-coming-in-v2-0">3.8. Deleting a Student : <code>delete</code> [coming in v2.0]</a></h3>
+<h3 id="display-tutorial-class-test-results-code-displayscore-code"><a class="link" href="#display-tutorial-class-test-results-code-displayscore-code">3.11. Display Tutorial Class' Test Results : <code>displayScore</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Allows user to display overall results for an exam or assignment. This can be in the form of a graph or table,</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>displayScore</code> i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p><code>displayScore</code> i/1 n/Lab01 f/graph</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>displayScore</code> i/1 n/Lab01 f/table</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-students-from-a-tutorial-code-list-code-coming-in-v2-0"><a class="link" href="#listing-students-from-a-tutorial-code-list-code-coming-in-v2-0">3.9. Listing Students from a Tutorial : <code>list</code> [coming in v2.0]</a></h3>
+<h3 id="display-tutorial-class-attendance-code-displayattendance-code"><a class="link" href="#display-tutorial-class-attendance-code-displayattendance-code">3.12. Display Tutorial Class' Attendance : <code>displayAttendance</code></a></h3>
 <div class="paragraph">
-<p>Lists all students from a particular tutorial slot.</p>
+<p>Allows user to display overall attendance for a class.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>list c/TUTORIAL_NAME</code></p>
+<p>Full Format: <code>displayAttendance m/MOD_CODE tn/TUTORIAL_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Shortcut Format: <code>displayAttendance i/TUTORIAL_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>displayAttendance</code> m/CS1010 tn/Lab Session</p>
+</li>
+<li>
+<p><code>displayAttendance</code> i/1</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-previously-entered-commands-code-undo-code-coming-in-v2-0"><a class="link" href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.10. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></h3>
+<h3 id="listing-students-from-a-tutorial-code-list-code"><a class="link" href="#listing-students-from-a-tutorial-code-list-code">3.13. Listing Students from a Tutorial : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Lists all students from a particular tutorial slot. If no index is given, all students will be listed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code> TUTORIAL_INDEX</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list i/1 n/Lab01 f/graph</code></p>
+</li>
+<li>
+<p><code>list</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-ui-tab-code-cd-code"><a class="link" href="#changing-the-ui-tab-code-cd-code">3.14. Changing the UI tab : <code>cd</code></a></h3>
+<div class="paragraph">
+<p>Toggles the tab switching between tutorial(t), module(m) and student(s) list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>cd</code> TAB_TO_SWITCH</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cd t</code></p>
+</li>
+<li>
+<p><code>cd m</code></p>
+</li>
+<li>
+<p><code>cd s</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-previously-entered-commands-code-undo-code-coming-in-v2-0"><a class="link" href="#undo-previously-entered-commands-code-undo-code-coming-in-v2-0">3.15. Undo Previously-entered Commands : <code>undo</code> [coming in v2.0]</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-coming-in-v2-0"><a class="link" href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.11. Clearing all entries : <code>clear</code> [coming in v2.0]</a></h3>
+<h3 id="clearing-all-entries-code-clear-code-coming-in-v2-0"><a class="link" href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.16. Clearing all entries : <code>clear</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br></p>
 </div>
@@ -381,7 +547,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-participation-for-a-student-code-classpart-code-coming-in-v2-0"><a class="link" href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.12. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></h3>
+<h3 id="mark-participation-for-a-student-code-classpart-code-coming-in-v2-0"><a class="link" href="#mark-participation-for-a-student-code-classpart-code-coming-in-v2-0">3.17. Mark Participation for a Student : <code>classPart</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Gives participation marks to a student of a particular tutorial slot</p>
 </div>
@@ -390,7 +556,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="store-a-student-s-results-code-addmarks-code-coming-in-v2-0"><a class="link" href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.13. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></h3>
+<h3 id="store-a-student-s-results-code-addmarks-code-coming-in-v2-0"><a class="link" href="#store-a-student-s-results-code-addmarks-code-coming-in-v2-0">3.18. Store a Student&#8217;s Results : <code>addMarks</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Allows user to add test results of a student of a particular tutorial slot</p>
 </div>
@@ -399,16 +565,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-tutorial-class-test-results-code-display-code-coming-in-v2-0"><a class="link" href="#display-tutorial-class-test-results-code-display-code-coming-in-v2-0">3.14. Display Tutorial Class' Test Results : <code>display</code> [coming in v2.0]</a></h3>
-<div class="paragraph">
-<p>Allows user to display overall results (graph) for an exam</p>
-</div>
-<div class="paragraph">
-<p>Format: `display c/[TUTORIAL_NAME]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-personal-notes-to-a-student-code-note-code-coming-in-v2-0"><a class="link" href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.15. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></h3>
+<h3 id="add-personal-notes-to-a-student-code-note-code-coming-in-v2-0"><a class="link" href="#add-personal-notes-to-a-student-code-note-code-coming-in-v2-0">3.19. Add Personal Notes to a Student : <code>note</code>  [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Allows user to add personal notes about class or feedback received by students.</p>
 </div>
@@ -417,14 +574,14 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data-coming-in-v2-0"><a class="link" href="#saving-the-data-coming-in-v2-0">3.17. Saving the data [coming in v2.0]</a></h3>
+<h3 id="saving-the-data-coming-in-v2-0"><a class="link" href="#saving-the-data-coming-in-v2-0">3.21. Saving the data [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>All data in T.A.rence is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -534,4 +691,4 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 11:58:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:49:04 UTC</div></div></div></body></html>
