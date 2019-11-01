@@ -131,7 +131,7 @@ public class MarkAttendanceCommand extends Command {
 
         if (targetStudent == null) {
             return handleSuggestedStudentCommands(
-                    targetModCode.get(), targetTutName.get(), targetStudName.get(), model);
+                    targetTutorial.getModCode(), targetTutorial.getTutName(), targetStudName.get(), model);
         }
 
         targetTutorial.setAttendance(week, targetStudent);

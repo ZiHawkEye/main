@@ -218,11 +218,9 @@ public class Application implements ReadOnlyApplication {
             }
         }
 
-        removeTutorial(targetTutorial);
         targetTutorial.setStudent(target, editedStudent);
-        addTutorial(targetTutorial);
-        addTutorialToModule(targetTutorial);
-
+        removeStudent(target);
+        addStudent(editedStudent);
     }
 
     /**
@@ -238,14 +236,6 @@ public class Application implements ReadOnlyApplication {
         for (Tutorial tutorial : tutorials) {
             if (tutorial.getTutName().equals(key.getTutName())) {
                 tutorial.deleteStudent(key);
-            }
-        }
-
-        // Delete students from existing modules
-        for (Module module : modules) {
-            if (module.getModCode().equals(key.getModCode())) {
-                module.deleteStudent(key);
-                break;
             }
         }
     }
