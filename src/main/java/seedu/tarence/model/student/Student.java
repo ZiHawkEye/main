@@ -56,6 +56,24 @@ public class Student extends Person {
     }
 
     /**
+     * Returns true if both students have the same email, nusnet id or matric number.
+     * This defines a weaker notion of equality between two students.
+     */
+    @Override
+    public boolean isSamePerson(Person otherStudent) {
+        if (otherStudent == this) {
+            return true;
+        }
+
+        return otherStudent != null
+                && ((((Student) otherStudent).getEmail().equals(getEmail())
+                || (((Student) otherStudent).getMatricNum().equals(getMatricNum())
+                && getMatricNum().isPresent())
+                || (((Student) otherStudent).getNusnetId().equals(getNusnetId())
+                && getNusnetId().isPresent())));
+    }
+
+    /**
      * Returns true if both students have the same name and share one other attribute.
      * This defines a weaker notion of equality between two students.
      */

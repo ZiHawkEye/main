@@ -2,7 +2,9 @@ package seedu.tarence.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.tarence.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.tarence.logic.parser.CliSyntax.PREFIX_MATNO;
 import static seedu.tarence.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.tarence.logic.parser.CliSyntax.PREFIX_NUSID;
 import static seedu.tarence.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.List;
@@ -30,20 +32,27 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
+    public static final String[] COMMAND_SYNONYMS = {COMMAND_WORD.toLowerCase(), "editstudent",
+        "editstud"};
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
             + "by the index number used in the displayed person list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_NAME + "NAME "
-            + PREFIX_EMAIL + "EMAIL\n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_EMAIL + "johndoe@example.com";
+            + "Parameters:\n"
+            + "INDEX (must be a positive integer) "
+            + PREFIX_NAME + "NAME (OPTIONAL) "
+            + PREFIX_EMAIL + "EMAIL (OPTIONAL) "
+            + PREFIX_MATNO + "MATRIC NO (OPTIONAL) "
+            + PREFIX_NUSID + "NUSNET ID (OPTIONAL)\n"
+            + "Example:\n"
+            + COMMAND_WORD + " 1 "
+            + PREFIX_EMAIL + "johndoe@example.com\n"
+            + "Synonyms:\n"
+            + String.join("\n", COMMAND_SYNONYMS);
 
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists.";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-
-    private static final String[] COMMAND_SYNONYMS = {COMMAND_WORD.toLowerCase(), "edit"};
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;
@@ -75,7 +84,7 @@ public class EditCommand extends Command {
         }
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
-        if (!studentToEdit.equals(editedStudent) && model.hasStudent(editedStudent)) {
+        if (!studentToEdit.isSamePerson(editedStudent) && model.hasStudent(editedStudent)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
