@@ -70,7 +70,7 @@ public class AddStudentCommand extends Command {
             + "Synonyms:\n"
             + String.join("\n", COMMAND_SYNONYMS);
 
-    public static final String MESSAGE_DUPLICATE_STUDENT = "A person already exists with the "
+    public static final String MESSAGE_DUPLICATE_STUDENT = "Another person already exists with the "
         + "same email/nusid/matriculation number!";
     public static final String MESSAGE_INVALID_CLASS = "No such module and/or tutorial class exists.";
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";

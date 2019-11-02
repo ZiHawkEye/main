@@ -123,16 +123,21 @@ public class Student extends Person {
      *
      * @return String representation of a Student object.
      */
+    // TODO: Sorry I touched it but it doesn't seem to break anything.
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
                 .append(" Email: ")
-                .append(getEmail())
-                .append(" Matric Number: ")
-                .append(getMatricNum())
-                .append(" NUSNET Id: ")
-                .append(getNusnetId());
+                .append(getEmail());
+        if (getMatricNum().isPresent()) {
+            builder.append(" Matric Number: ")
+                    .append(getMatricNum().get());
+        }
+        if (getNusnetId().isPresent()) {
+            builder.append(" NUSNET Id: ")
+                .append(getNusnetId().get());
+        }
         return builder.toString();
     }
 

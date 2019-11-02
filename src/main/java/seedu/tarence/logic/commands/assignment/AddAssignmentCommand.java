@@ -23,6 +23,7 @@ import seedu.tarence.model.tutorial.Assignment;
 import seedu.tarence.model.tutorial.TutName;
 import seedu.tarence.model.tutorial.Tutorial;
 import seedu.tarence.model.tutorial.exceptions.DuplicateAssignmentException;
+import seedu.tarence.model.tutorial.exceptions.DuplicateEventException;
 import seedu.tarence.storage.Storage;
 
 /**
@@ -115,7 +116,7 @@ public class AddAssignmentCommand extends AssignmentCommand {
                 score.get(),
                 startDate.get(),
                 endDate.get()));
-        } catch (IllegalArgumentException | DuplicateAssignmentException e) {
+        } catch (IllegalArgumentException | DuplicateAssignmentException | DuplicateEventException e) {
             throw new CommandException(e.getMessage());
         }
 

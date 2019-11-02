@@ -21,6 +21,7 @@ import seedu.tarence.model.module.ModCode;
 import seedu.tarence.model.tutorial.Event;
 import seedu.tarence.model.tutorial.TutName;
 import seedu.tarence.model.tutorial.Tutorial;
+import seedu.tarence.model.tutorial.exceptions.DuplicateEventException;
 import seedu.tarence.storage.Storage;
 
 /**
@@ -108,7 +109,7 @@ public class AddEventCommand extends EventCommand {
                 eventName.get(),
                 startTime.get(),
                 endTime.get()));
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | DuplicateEventException e) {
             throw new CommandException(e.getMessage());
         }
 

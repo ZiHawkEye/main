@@ -8,6 +8,8 @@ import static seedu.tarence.logic.parser.CliSyntax.PREFIX_TUTORIAL_DURATION_IN_M
 import static seedu.tarence.logic.parser.CliSyntax.PREFIX_TUTORIAL_NAME;
 import static seedu.tarence.logic.parser.CliSyntax.PREFIX_TUTORIAL_START_TIME;
 import static seedu.tarence.logic.parser.CliSyntax.PREFIX_TUTORIAL_WEEKS;
+import static seedu.tarence.logic.parser.ParserUtil.NORMAL_FORM_DAYS;
+import static seedu.tarence.logic.parser.ParserUtil.SHORT_FORM_DAYS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +33,15 @@ public class AddTutorialCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a tutorial to the application.\n"
             + "Parameters:\n"
-            + PREFIX_TUTORIAL_NAME + "NAME "
+            + PREFIX_TUTORIAL_NAME + "TUTORIAL NAME "
+            + PREFIX_MODULE + "MODULE CODE "
             + PREFIX_TUTORIAL_DAY + "DAY "
-            + PREFIX_TUTORIAL_START_TIME + "START_TIME "
+            + PREFIX_TUTORIAL_START_TIME + "START TIME "
             + PREFIX_TUTORIAL_WEEKS + "WEEKS "
-            + PREFIX_TUTORIAL_DURATION_IN_MINUTES + "DURATION_IN_MINUTES\n"
+            + PREFIX_TUTORIAL_DURATION_IN_MINUTES + "DURATION IN MINUTES\n"
+            + "Accepted input for DAY:\n"
+            + String.join(" ", NORMAL_FORM_DAYS) + "\n"
+            + String.join(" ", SHORT_FORM_DAYS) + "\n"
             + "Examples:\n"
             + COMMAND_WORD + " "
             + PREFIX_TUTORIAL_NAME + "Lab 01 "

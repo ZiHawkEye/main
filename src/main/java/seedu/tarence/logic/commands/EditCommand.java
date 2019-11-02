@@ -50,7 +50,8 @@ public class EditCommand extends Command {
             + "Synonyms:\n"
             + String.join("\n", COMMAND_SYNONYMS);
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists.";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "Another person already exists with the "
+            + "same email/nusid/matriculation number!";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
 
@@ -85,7 +86,7 @@ public class EditCommand extends Command {
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
         if (!studentToEdit.isSamePerson(editedStudent) && model.hasStudent(editedStudent)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
 
         model.setStudent(studentToEdit, editedStudent);

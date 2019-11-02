@@ -17,12 +17,13 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL =
             "https://ay1920s1-cs2103-t14-2.github.io/main/UserGuide.html";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL + "\n"
+    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL + "\n\n"
             + "T.A.rence generates and displays real-time suggestions for command words and user data\n"
             + "from the application (e.g. module codes and tutorial names), depending on the field the\n"
             + "user is currently entering. Similar to other CLI programs such as Windows' Command Prompt\n"
             + "and MacOS' Terminal, pressing the TAB key will autofill the input box with the current suggestion.\n"
-            + "Pressing CTRL cycles through the different available suggestions.";
+            + "Pressing CTRL cycles through the different available suggestions.\n\n"
+            + "Commands can also be chained by using the '+' delimiter to separate commands - eg. command1 + command2";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
