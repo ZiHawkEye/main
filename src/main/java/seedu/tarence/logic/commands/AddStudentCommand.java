@@ -19,6 +19,7 @@ import seedu.tarence.logic.commands.exceptions.CommandException;
 import seedu.tarence.model.Model;
 import seedu.tarence.model.builder.StudentBuilder;
 import seedu.tarence.model.module.ModCode;
+import seedu.tarence.model.person.exceptions.DuplicatePersonException;
 import seedu.tarence.model.student.Student;
 import seedu.tarence.model.tutorial.TutName;
 import seedu.tarence.model.tutorial.Tutorial;
@@ -109,7 +110,18 @@ public class AddStudentCommand extends Command {
                     toAdd.getNusnetId(), modCode, tutName);
         }
 
-        if (model.hasStudent(toAdd)) {
+        // Should not create a list of a single list
+        List<Student> studentList = new ArrayList<>(model.getFilteredStudentList());
+
+        boolean hasDuplicateStudents = studentList.stream()
+                .anyMatch(student -> student.isSameStudent(toAdd) && student != toAdd);
+
+        // Checks if non-duplicate students share the same data fields
+        // Includes students who are exactly identical to target student
+        boolean hasDuplicateFields = studentList.stream()
+                .filter(student -> !student.isSameStudent(toAdd))
+                .anyMatch(student -> student.isSamePerson(toAdd));
+        if (hasDuplicateFields) {
             throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
 
@@ -131,7 +143,12 @@ public class AddStudentCommand extends Command {
 
         }
 
-        model.addStudent(toAdd);
+        if (!hasDuplicateStudents) {
+            model.addStudent(toAdd);
+        } else {
+            // Risky - attempts to ignore possible existence of duplicate students
+            model.addStudentIgnoreDuplicates(toAdd);
+        }
         model.addStudentToTutorial(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

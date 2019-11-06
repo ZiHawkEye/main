@@ -203,6 +203,13 @@ public class Application implements ReadOnlyApplication {
     }
 
     /**
+     * Adds a student to the application, even if duplicates exist.
+     */
+    public void addStudentIgnoreDuplicates(Student s) {
+        students.addIgnoreDuplicates(s);
+    }
+
+    /**
      * Replaces the given student {@code target} in the list with {@code editedStudent}.
      * {@code target} must exist in the application.
      * The person identity of {@code editedStudent} must not be the same as another existing student in the application.
@@ -221,6 +228,28 @@ public class Application implements ReadOnlyApplication {
             targetTutorial.setStudent(target, editedStudent);
             removeStudent(target);
             addStudent(editedStudent);
+        }
+    }
+
+    /**
+     * Replaces the given student {@code target} in the list with {@code editedStudent}.
+     * {@code target} must exist in the application.
+     * Does not throw an error even if duplicate students exist.
+     */
+    public void setStudentIgnoreDuplicates(Student target, Student editedStudent) {
+        requireAllNonNull(target, editedStudent);
+        if (!target.equals(editedStudent)) {
+            Tutorial targetTutorial = null;
+            for (Tutorial tutorial : tutorials) {
+                if (tutorial.getTutName().equals(target.getTutName())) {
+                    targetTutorial = tutorial;
+                    break;
+                }
+            }
+
+            targetTutorial.setStudent(target, editedStudent);
+            removeStudent(target);
+            addStudentIgnoreDuplicates(editedStudent);
         }
     }
 
