@@ -1,4 +1,4 @@
-= Ellie Yee - Project Portfolio
+= Yew Kai Zhe - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
@@ -7,24 +7,19 @@
 
 == PROJECT: T.A.rence
 
-I'm _Kai_Zhe_. I am currently pursuing a major in Computer Science.
+I'm _Kai Zhe_. I'm currently pursuing a major in Computer Science at the National University of Singapore(NUS).
 
 == Overview
 
-T.A.rence is a class management system for teaching assistants in NUS. +
-Designed for the 'super TA', it helps keep track of all classes taught by the TA +
-and all relevant information pertaining to each class, such as upcoming events, +
+T.A.rence is a class management system for teaching assistants in NUS. Designed for the 'super TA',
+it helps keep track of all classes taught by the TA and all relevant information pertaining to each class, such as upcoming events,
 student participation, assignment scores and the number of hours taught for each module.
 
 == Summary of contributions
 
 === *Major Enhancements*: added *Model skeleton and ImportTutorialsCommand, Attendance/Assignment/Event-related logic commands*
 
-==== Most of the model classes in T.A.rence, +
-ImportTutorialsCommand, +
-MarkAttendanceCommand and ExportAttendanceCommand, +
-add/delete Assignments and SetAssignmentScoreCommand, +
-add/delete/list Events
+==== Most of the model classes in T.A.rence, ImportTutorialsCommand, MarkAttendanceCommand and ExportAttendanceCommand, add/delete Assignments and SetAssignmentScoreCommand, add/delete/edit/list Events
 
 * Summary of the features:
 ** Created most of the model classes used in the T.A.rence application (Modules, Tutorials, Students, etc.)
@@ -32,17 +27,17 @@ add/delete/list Events
 ** ImportTutorialsCommand makes use of NUSMods data to automatically import modules based on the NUSMods url.
 
 * Justification:
-** Tracking participation, tutorial assignments, upcoming events as well as compatibility with NUSMods +
+** Tracking participation, tutorial assignments, upcoming events as well as compatibility with NUSMods
 are essential features that cater to any TA in NUS.
 
 * Highlights:
-** Many of the features are interdependent on each other and do not need explicit input from the user +
-- eg. Tutorial lessons are added to the Events automatically if the semester start date is defined, +
+** Many of the features are interdependent on each other and do not need explicit input from the user
+- eg. Tutorial lessons are added to the Events automatically if the semester start date is defined,
 so hours logged for each Tutorial can be updated automatically based on the current date.
-** The interdependence, while useful feature-wise, also leads to high coupling and it was challenging to maintain consistency within +
+** The interdependence, while useful feature-wise, also leads to high coupling and it was challenging to maintain consistency within
 the different models/data structures.
-** The application relies on precached NUSMods data of all existing tutorials in AY 2019-2020, hence it does not rely on a internet connection. +
-Even then, the loading of the all the data into T.A.rence at initialization is not too computationally/memory intensive, without significant lag. + 
+** The application relies on precached NUSMods data of all existing tutorials in AY 2019-2020, hence it does not rely on a internet connection.
+Even then, the loading of the all the data into T.A.rence at initialization is not too computationally/memory intensive, without significant lag.
 This is partly because extraneous elements (Lectures, Venues) have been filtered out in the cached data to reduce file size.
 
 * Credits:
@@ -60,8 +55,8 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 *** Added issues on Github for milestones, bugs
 
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: link:{prURL}/173[#173], link:{prURL}/108[#108]
-*** Did cosmetic tweaks to existing contents of the Developer guide: link:{prURL}/92[#92]
+*** Edited User Guide: link:{prURL}/120[#120], link:{prURL}/162[#162]
+*** Edited Developer guide: link:{prURL}/94[#94]
 
 == Contributions to the User Guide
 
