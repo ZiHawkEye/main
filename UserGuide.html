@@ -22,7 +22,7 @@
 <li><a href="#deleting-a-student-code-deletestudent-code">3.7. Deleting a Student : <code>deleteStudent</code></a></li>
 <li><a href="#editing-a-student-code-edit-code">3.8. Editing a Student : <code>edit</code></a></li>
 <li><a href="#searching-student-by-name-code-find-code">3.9. Searching Student by Name: <code>find</code></a></li>
-<li><a href="#display-tutorial-class-test-results-code-displayscore-code">3.10. Display Tutorial Class' Test Results : <code>displayScore</code></a></li>
+<li><a href="#display-tutorial-class-test-results-code-displayassignmentscore-code">3.10. Display Tutorial Class' Test Results : <code>displayAssignmentScore</code></a></li>
 <li><a href="#display-tutorial-class-attendance-code-displayattendance-code">3.11. Display Tutorial Class' Attendance : <code>displayAttendance</code></a></li>
 <li><a href="#listing-students-from-a-tutorial-code-list-code">3.12. Listing Students from a Tutorial : <code>list</code></a></li>
 <li><a href="#changing-the-ui-tab-code-cd-code">3.13. Changing the UI tab : <code>cd</code></a></li>
@@ -84,7 +84,7 @@ If you can type fast, T.A.rence can get your contact management tasks done faste
 <p>Download the latest <code>.jar</code> <a href="{URL}/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for T.A.rence.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -106,7 +106,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all students from a given tutorial.</p>
 </li>
 <li>
-<p><strong><code>addStudent</code></strong><code>n/John Doe e/johnd@example.com m/CS2100, tn/Tutorial-01</code> : adds a student named <code>John Doe</code> into the <code>Tutorial-01</code> class inside module <code>CS2100</code>.</p>
+<p><strong><code>addStudent</code></strong>` n/John Do e/johnd@example.com m/CS2100 tn/Tutorial-01` : adds a student named <code>John Doe</code> into the <code>Tutorial-01</code> class inside module <code>CS2100</code>.</p>
 </li>
 <li>
 <p><strong><code>deleteStudent</code></strong><code>3</code> : deletes the student in index 3</p>
@@ -135,7 +135,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user; e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user; e.g. in <code>addStudent n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME e/EMAIL</code>, <code>e/EMAIL n/NAME</code> is also acceptable.</p>
@@ -163,7 +163,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-module-code-addmodule-code"><a class="link" href="#adding-a-module-code-addmodule-code">3.2. Adding a Module: <code>addModule</code></a></h3>
 <div class="paragraph">
 <p>Adds a module to T.A.rence.<br>
-Format: <code>addModule m/MODULE_CODE</code></p>
+Format: <code>addModule m/MODULE_CODE</code>.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -178,15 +178,31 @@ Format: <code>addModule m/MODULE_CODE</code></p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>addMod</code>, <code>addmod</code>, <code>addmodule</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-tutorial-slot-code-addtutorial-code"><a class="link" href="#adding-a-tutorial-slot-code-addtutorial-code">3.3. Adding a Tutorial Slot : <code>addTutorial</code></a></h3>
 <div class="paragraph">
 <p>Adds a tutorial slot into the specified module.<br>
-Pre-condition: Module must already exist inside application. <br></p>
+Pre-condition: Module must already exist inside application. <br>
+Explanation: Adds a tutorial called Tutorial-01 which starts at 1PM, lasts for 60 minutes,
+             and occurs every Monday during weeks 1,2, and 3 into module CS1010.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addTutorial tn/TUTORIAL_NAME st/START_TIME dur/TUTORIAL_DURATION d/TUTORIAL_DAY w/TUTORIAL_WEEKS m/MODULE_CODE</code></p>
+<p>Format: <code>addTutorial tn/[TUTORIAL_NAME] st/[START_TIME] dur/[TUTORIAL_DURATION] d/[TUTORIAL_DAY] w/[TUTORIAL_WEEKS] m/[MODULE_CODE]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -198,12 +214,28 @@ Pre-condition: Module must already exist inside application. <br></p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Explanation: Adds a tutorial called Tutorial-01 which starts at 1PM, lasts for 60 minutes,
-             and occurs every Monday during weeks 1,2, and 3 into module CS1010.</p>
+<p>START_TIME is in the format hhmm.<br>
+TUTORIAL_DURATION is in minutes</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Other input options for <code>weeks</code> field:</p>
 </div>
@@ -223,17 +255,36 @@ Pre-condition: Module must already exist inside application. <br></p>
 <div class="paragraph">
 <p>Omit <code>w/</code> field for the default tutorial weeks (3-13 inclusive).</p>
 </div>
+<div class="paragraph">
+<p>Command synonyms: <code>addtut</code>, <code>addtutorial</code></p>
 </div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-student-code-addstudent-code"><a class="link" href="#adding-a-student-code-addstudent-code">3.4. Adding a Student : <code>addStudent</code></a></h3>
 <div class="paragraph">
-<p>Adds a student into a specified tutorial.<br>
-Pre-condition: Module and tutorial slot must already exist inside the application.</p>
+<p>Adds a student into a specified tutorial.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pre-condition: Module and tutorial slot must already exist inside the application.<br>
+Each student is uniquely identified by a combination of their name, email, nusid and matric number.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>addStudent n/NAME e/EMAIL tn/TUTORIAL_NAME m/MODULE_CODE</code></p>
+<p>Format: <code>addStudent n/[NAME] e/[EMAIL] tn/[TUTORIAL_NAME] m/[MODULE_CODE]</code>.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -248,6 +299,13 @@ Pre-condition: Module and tutorial slot must already exist inside the applicatio
 <div class="paragraph">
 <p>Explanation: Adds a student named Bob into Tutorial-01 under module CS1010.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -259,14 +317,32 @@ Pre-condition: Module and tutorial slot must already exist inside the applicatio
 <div class="paragraph">
 <p>No prefixes are needed for these additional fields.</p>
 </div>
+<div class="paragraph">
+<p>Alternatively, you can use tutorial index to specify which tutorial to add the student into.<br>
+The format will be: <code>addStudent n/[NAME] e/[EMAIL] i/[TUTORIAL_INDEX]</code><br></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g addStudent n/John Doe e/johnd@example.com i/1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>addstu</code>, <code>addstud</code>, <code>addstudent</code></p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-module-code-deletemodule-code"><a class="link" href="#deleting-a-module-code-deletemodule-code">3.5. Deleting a Module : <code>deleteModule</code></a></h3>
 <div class="paragraph">
 <p>Deletes an existing module from T.A.rence, based on it&#8217;s module list index.<br>
-Format: <code>deleteModule INDEX</code></p>
+Format: <code>deleteModule INDEX</code>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -297,6 +373,31 @@ Format: <code>deleteModule INDEX</code></p>
 <p><code>deleteModule 1</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively, you can use the module code to specify the module to be deleted.
+The format will be: <code>deleteModule m/[MOD_CODE]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g deleteModule m/GER1000</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>deletemod</code>, <code>delmodule</code>, <code>delmod</code>, `deletemodule</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -334,6 +435,45 @@ Format: <code>deleteTutorial INDEX</code></p>
 <p><code>deleteTutorial 1</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted.<br>
+If the tutorial name is unique, you can simply specify the tutorial name.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The format will be: <code>deleteTutorial tn/[TUTORIAL_NAME]</code></p>
+</li>
+<li>
+<p>E.g deleteTutorial tn/tut1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If there are multiple tutorials with the same name, you will need to specify the module code.<br>
+The format will then be <code>deleteTutorial tn/[TUTORIAL_NAME] m/[MOD_CODE]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g deleteTutorial tn/Lab 1 m/PC1431</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>deletetut</code>, <code>deleteclass</code>, <code>deltutorial</code>, <code>deltut</code>, <code>delclass</code>, <code>deletetutorial</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -379,14 +519,29 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>deletestu</code>, <code>deletestud</code>, <code>delstudent</code>, <code>delstu</code>, <code>delstud</code>, <code>deletestudent</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-student-code-edit-code"><a class="link" href="#editing-a-student-code-edit-code">3.8. Editing a Student : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Allows user to edit an existing student information</p>
+<p>Allows user to edit an existing student information. Everything except the module and tutorial of the student can be
+edited.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit n/[ORIGINAL_STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
+<p>Format: <code>edit [INDEX OF STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -394,7 +549,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit n/Ben n/Ben Leong</code></p>
+<p><code>edit 1 n/Ben Leong</code></p>
 </li>
 </ul>
 </div>
@@ -404,7 +559,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="paragraph">
 <p>Searches and displays student particulars based on name. The search can be based on partial strings that match
 and need not be the full name of the student.<br>
-Format: <code>find n\[SEARCH_TERM]</code></p>
+Format: <code>find [SEARCH_TERM]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -423,7 +578,7 @@ Format: <code>find n\[SEARCH_TERM]</code></p>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Student matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -435,7 +590,7 @@ Format: <code>find n\[SEARCH_TERM]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find n\John</code><br>
+<p><code>find John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
@@ -446,12 +601,12 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-tutorial-class-test-results-code-displayscore-code"><a class="link" href="#display-tutorial-class-test-results-code-displayscore-code">3.10. Display Tutorial Class' Test Results : <code>displayScore</code></a></h3>
+<h3 id="display-tutorial-class-test-results-code-displayassignmentscore-code"><a class="link" href="#display-tutorial-class-test-results-code-displayassignmentscore-code">3.10. Display Tutorial Class' Test Results : <code>displayAssignmentScore</code></a></h3>
 <div class="paragraph">
 <p>Allows user to display overall results for an exam or assignment. This can be in the form of a graph or table,</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>displayScore</code> i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`</p>
+<p>Format: <code>displayAssignmentScore</code> i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -459,12 +614,54 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="ulist">
 <ul>
 <li>
-<p><code>displayScore</code> i/1 n/Lab01 f/graph</p>
+<p><code>displayAssignmentScore</code> i/1 n/Lab01 f/graph</p>
 </li>
 <li>
-<p><code>displayScore</code> i/1 n/Lab01 f/table</p>
+<p><code>displayAssignmentScore</code> i/1 n/Lab01 f/table</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>displayscore</code>, <code>displayassignment</code>, <code>displayassignment</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When a new student is added/deleted/modified, the assignment will need to be refreshed.</p>
+</li>
+<li>
+<p>i.e you will need to enter the command again to display the updated scores.</p>
+</li>
+<li>
+<p>When displaying the graph format, a short lag may follow.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -491,6 +688,45 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </li>
 </ul>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command Synonyms: <code>displayatt</code>, <code>showattendance</code>, <code>showatt</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When a new student is added/deleted/modified, the attendance will need to be refreshed.</p>
+</li>
+<li>
+<p>i.e you will need to enter the command again to display the updated attendance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-students-from-a-tutorial-code-list-code"><a class="link" href="#listing-students-from-a-tutorial-code-list-code">3.12. Listing Students from a Tutorial : <code>list</code></a></h3>
@@ -513,6 +749,20 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </li>
 </ul>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>liststu</code>, <code>liststud</code>, <code>liststudents</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="changing-the-ui-tab-code-cd-code"><a class="link" href="#changing-the-ui-tab-code-cd-code">3.13. Changing the UI tab : <code>cd</code></a></h3>
@@ -521,6 +771,9 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 <div class="paragraph">
 <p>Format: <code>cd</code> TAB_TO_SWITCH</p>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>changetab</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -547,6 +800,30 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="paragraph">
 <p>Format: <code>import</code> [URL]</p>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import <a href="https://nusmods.com/timetable/sem-1/share?CS1231=TUT:08,SEC:2&amp;IS1103=TUT:19,SEC:1" class="bare">https://nusmods.com/timetable/sem-1/share?CS1231=TUT:08,SEC:2&amp;IS1103=TUT:19,SEC:1</a></code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>importtutorials</code>, <code>importmods</code>, <code>importtutorial</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="marks-attendance-of-a-tutorial-code-markattendance-code"><a class="link" href="#marks-attendance-of-a-tutorial-code-markattendance-code">3.15. Marks attendance of a tutorial <code>markAttendance</code></a></h3>
@@ -554,24 +831,58 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <p>Marks/Toggles attendance of a tutorial or a student.</p>
 </div>
 <div class="paragraph">
-<p>Format:
-* <code>markAttendance</code> i/[TUTORIAL_INDEX] w/[WEEK]
-* <code>markAttendance</code> tn/[TUTORIAL_NAME] m/[MODULE_NAME] w/[WEEK] n/[STUDENT NAME]</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.</p>
+<p><code>markAttendance</code> i/[TUTORIAL_INDEX] w/[WEEK]</p>
 </li>
 <li>
-<p>Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial
-will have their attendance marked.</p>
+<p><code>markAttendance</code> tn/[TUTORIAL_NAME] m/[MODULE_NAME] w/[WEEK] n/[STUDENT NAME]</p>
+</li>
+<li>
+<p>WEEK is a positive integer between 1 to 13</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>markAttendance i/1 w/5</p>
+</li>
+<li>
+<p>markAttendance n/John Doe tn/Lab 1 m/CS1010 w/5</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
+Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial will have their attendance marked.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g tn/Lab Session m/CS1010S w/1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command Synonyms:  <code>mark</code>, <code>marka</code>, <code>markatt</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -580,22 +891,56 @@ will have their attendance marked.</p>
 <p>Exports attendance of a tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format:
-* <code>exportAttendance</code> i/[TUTORIAL_INDEX] f/[FILENAME](Optional)</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.</p>
+<p><code>exportAttendance</code> i/[TUTORIAL_INDEX] f/[FILENAME](Optional)</p>
 </li>
 <li>
-<p>The filename field is optional and the tutorial name will be specified as the filename by default.</p>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>exportAttendance tn/Lab 1 m/CS1010 f/exportedAttendance</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
+The filename field is optional and the tutorial name will be specified as the filename by default.<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g exportAttendance i/1 f/exportedAttendance</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Command Synonyms: <code>export</code>, <code>exporta</code>, <code>exportatt</code>, <code>exportattendance</code></p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -604,19 +949,79 @@ will have their attendance marked.</p>
 <p>Adds an assignment to a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format:
-* <code>addAssignment</code> i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.</p>
+<p><code>addAssignment</code> i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Command Synonyms: <code>adda</code>, <code>addasm</code>, <code>addassn</code>, <code>addassignment</code></p>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>addAssignment i/TUTORIAL INDEX n/ASSIGNMENT NAME score/MAX SCORE sd/START DATE ed/END DATE</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
+</li>
+<li>
+<p>MAX_SCORE is a non-negative integer</p>
+</li>
+<li>
+<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
+This will be in the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addAssignment</code> tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/[START_DATE] ed/[END_DATE]</p>
+</li>
+<li>
+<p>E.g addAssignment tn/Lab 1 m/CS1010 n/Lab01 score/10 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command Synonyms: <code>export</code>, <code>exporta</code>, <code>exportatt</code>, <code>exportattendance</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -625,22 +1030,77 @@ will have their attendance marked.</p>
 <p>Deletes an Assignment from a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format:
-* <code>deleteAssignment</code> i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.</p>
-</li>
-<li>
-<p>You can also use i/[ASSIGNMENT INDEX] to specify the assignment, instead of inputting assignment details.</p>
+<p><code>deleteAssignment</code> i/[TUTORIAL_INDEX] n/[ASSIGNMENT_NAME] score/[MAX_SCORE] sd/START_DATE ed/END_DATE</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>deleteAssignment tn/Lab 1 m/CS1010 n/Lab01 score/10 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
+</li>
+<li>
+<p>MAX_SCORE is a non-negative integer</p>
+</li>
+<li>
+<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
+You can also use i/[ASSIGNMENT INDEX] to specify the assignment, instead of inputting assignment details.<br>
+This will be in the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteAssignment i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX]</code></p>
+</li>
+<li>
+<p>deleteAssignment i/1 i/1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command Synonyms: <code>dela</code>, <code>delassn</code>, <code>delasm</code>, <code>deleteassignment</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -649,22 +1109,57 @@ will have their attendance marked.</p>
 <p>Sets an Assignment score for a Student.</p>
 </div>
 <div class="paragraph">
-<p>Format:
-* <code>setAssignmentScore</code> i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[score]</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.</p>
-</li>
-<li>
-<p>Tutorial, Assignment, Student indexes are specified in a fixed order.</p>
+<p><code>setAssignmentScore</code> i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[score]</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>setAssignmentScore i/1 i/1 i/1 score/10</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
+Tutorial, Assignment, Student indexes are specified in a fixed order.<br>
+This will be in the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setAssignmentScore tn/[TUTORIAL_NAME] m/[MOD_CODE] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[SCORE]</code></p>
+</li>
+<li>
+<p>E.g setAssignmentScore tn/Lab 1 m/CS1010 i/1 i/1 score/10</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>sets</code>, <code>setscore</code>, <code>setsc</code>, <code>setassignmentscore</code></p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -673,7 +1168,75 @@ will have their attendance marked.</p>
 <p>Adds an Event to a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addEvent</code> i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addEvent</code> i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>addEvent i/1 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
+</li>
+<li>
+<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify the full tutorial name and module code instead of the index</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This will be in the format:</p>
+</li>
+<li>
+<p>tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] sd/[START_TIME] ed/[END_TIME]</p>
+</li>
+<li>
+<p>addEvent tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>adde</code>, <code>addev</code>, <code>addevnt</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -682,21 +1245,84 @@ will have their attendance marked.</p>
 <p>Adds an Event to a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addEvent</code> i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the Tutorial.</p>
-</li>
-<li>
-<p>You can also use i/[EVENT INDEX] to specify the Event, instead of inputting Event details.</p>
+<p><code>addEvent</code> i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>deleteEvent i/1 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
+</li>
+<li>
+<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use also use tutorial name with module code to specify the Tutorial.<br>
+* This will be the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>deleteEvent tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] sd/[START_TIME] ed/[END_TIME]</p>
+</li>
+<li>
+<p>Eg. deleteEvent tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also use i/[EVENT INDEX] to specify the Event, instead of inputting Event details.<br>
+This will be the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>deleteEvent i/[TUTORIAL_INDEX] t/[EVENT_INDEX]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>delevnt</code>, <code>dele</code>, <code>delev</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -705,21 +1331,77 @@ will have their attendance marked.</p>
 <p>Edits an Event in a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editEvent</code> i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the Tutorial.</p>
-</li>
-<li>
-<p>Event detail fields (EVENT_NAME, START_DATE, END_DATE) are optional.</p>
+<p><code>editEvent</code> i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>editEvent i/1 i/1 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
+</li>
+<li>
+<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also use the tutorial name with module code to specify the Tutorial.<br>
+This will be the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>i/TARGET [EVENT_INDEX] tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] (OPTIONAL)
+sd/[START_TIME] (OPTIONAL) ed/[END_TIME] (OPTIONAL)</p>
+</li>
+<li>
+<p>E.g editEvent i/1 tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Event detail fields (EVENT_NAME, START_DATE, END_DATE) are optional.</p>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>edev</code>, <code>editev</code>, <code>edite</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -728,18 +1410,55 @@ will have their attendance marked.</p>
 <p>Lists Events in a Tutorial.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listEvents</code> i/[TUTORIAL_INDEX]</p>
+<p>Format:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can use either tutorial index or tutorial name with module code to specify the Tutorial.</p>
+<p><code>listEvents</code> i/[TUTORIAL_INDEX]</p>
+</li>
+<li>
+<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>listEvents i/1</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use either tutorial index or tutorial name with module code to specify the Tutorial.<br>
+This will be in the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listEvents</code> tn/[TUTORIAL_NAME] m/[MODULE_CODE]</p>
+</li>
+<li>
+<p>Eg: listEvents tn/Lab 1 m/CS1010</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>liste</code>, <code>listev</code>, <code>listevnt</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -749,7 +1468,32 @@ will have their attendance marked.</p>
 </div>
 <div class="paragraph">
 <p>Format:
-* <code>setSemStart</code> sd/START_DATE</p>
+* <code>setSemStart</code> sd/[START_DATE]
+* START_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>setSemStart sd/31-12-2001 1200</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>setsemstart</code>, <code>setst</code>, <code>setsem</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -761,11 +1505,43 @@ will have their attendance marked.</p>
 <p>Format:
 <code>undo</code> u/[NUMBER_OF_ACTIONS]</p>
 </div>
+<div class="paragraph">
+<p>Undoes any state-altering command from the application.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo u/NUMBER_OF_STATES_TO_UNDO</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>undo u/2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Resets the application state to the previous state.</p>
+</li>
+<li>
+<p>Undo can only be applied to states that are present in that particular session (from application start-up)</p>
+</li>
+<li>
+<p>The <code>NUMBER_OF_STATES_TO_UNDO</code> refers to the previous number of states to undo in that session</p>
+</li>
+<li>
+<p>The <code>NUMBER_OF_STATES_TO_UNDO</code> <strong>must be a positive integer</strong>; 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code-coming-in-v2-0"><a class="link" href="#clearing-all-entries-code-clear-code-coming-in-v2-0">3.26. Clearing all entries : <code>clear</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br></p>
+<p>Clears all entries from the T.A.rence.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>clear</code></p>
@@ -901,4 +1677,4 @@ e.g. <code>add m/CS1010</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 08:12:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 09:06:51 UTC</div></div></div></body></html>
