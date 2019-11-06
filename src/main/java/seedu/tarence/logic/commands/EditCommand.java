@@ -79,6 +79,9 @@ public class EditCommand extends Command {
         }
 
         Student studentToEdit = lastShownList.get(index.getZeroBased());
+        if (studentToEdit == null) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
         Student editedStudent = createEditedStudent(studentToEdit, editStudentDescriptor);
 
         if (!studentToEdit.isSamePerson(editedStudent) && model.hasStudent(editedStudent)) {
