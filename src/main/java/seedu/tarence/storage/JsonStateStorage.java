@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Stack;
 import java.util.logging.Logger;
 
-import org.apache.commons.io.FileUtils;
+// import org.apache.commons.io.FileUtils;
 
 import seedu.tarence.commons.core.LogsCenter;
 import seedu.tarence.commons.exceptions.DataConversionException;
@@ -61,7 +61,7 @@ public class JsonStateStorage implements ApplicationStateStorage {
     // TODO: Throws import cannot be found error
     public void clearStateFolder() throws IOException {
         Path filePath = Paths.get(dataFolderName, stateFolderName);
-        FileUtils.deleteDirectory(filePath.toFile());
+        // FileUtils.deleteDirectory(filePath.toFile());
     }
 
     /**

@@ -81,7 +81,7 @@ public class Student extends Person {
     }
 
     /**
-     * Returns true if both students have the same name and share one other attribute.
+     * Returns true if both students have the same name, email, matric num and nusid.
      * This defines a weaker notion of equality between two students.
      */
     public boolean isSameStudent(Student otherStudent) {
@@ -92,8 +92,10 @@ public class Student extends Person {
         return otherStudent != null
                 && otherStudent.getName().equals(getName())
                 && (otherStudent.getEmail().equals(getEmail())
-                || otherStudent.getMatricNum().equals(getMatricNum())
-                || otherStudent.getNusnetId().equals(getNusnetId()));
+                && otherStudent.getMatricNum().equals(getMatricNum())
+                && otherStudent.getNusnetId().equals(getNusnetId()))
+                && (!otherStudent.getModCode().equals(getModCode())
+                || !otherStudent.getTutName().equals(getTutName()));
     }
 
     /**

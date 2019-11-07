@@ -294,6 +294,11 @@ public class AddStudentCommandTest {
         }
 
         @Override
+        public void addStudentIgnoreDuplicates(Student student) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deleteStudent(Student student) {
             throw new AssertionError("This method should not be called.");
         }
@@ -302,6 +307,11 @@ public class AddStudentCommandTest {
         public void setStudent(Student target, Student editedStudent) {
             throw new AssertionError("This method should not be called.");
 
+        }
+
+        @Override
+        public void setStudentIgnoreDuplicates(Student target, Student editedStudent) {
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
