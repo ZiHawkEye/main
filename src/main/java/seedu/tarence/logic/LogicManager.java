@@ -98,11 +98,11 @@ public class LogicManager implements Logic {
             }
 
             // TODO: Temporarily disabling storage
-            // try {
-            //     storage.saveApplication(model.getApplication());
-            // } catch (IOException ioe) {
-            //     throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
-            // }
+             try {
+                 storage.saveApplication(model.getApplication());
+             } catch (IOException ioe) {
+                 throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
+             }
 
             // If attendance is to be displayed, it will be passed into the commandResult
             if (currCommandResult.isShowAttendance()) {
