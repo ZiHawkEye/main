@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.Stack;
 import java.util.logging.Logger;
 
+// TODO: Cannot resolve import
 // import org.apache.commons.io.FileUtils;
 
 import seedu.tarence.commons.core.LogsCenter;
@@ -61,6 +62,7 @@ public class JsonStateStorage implements ApplicationStateStorage {
      */
     public void clearStateFolder() throws IOException {
         Path filePath = Paths.get(dataFolderName, stateFolderName);
+        // TODO: Cannot resolve FileUtils
         // FileUtils.deleteDirectory(filePath.toFile());
     }
 

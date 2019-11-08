@@ -17,6 +17,7 @@ import seedu.tarence.model.module.UniqueModuleList;
 import seedu.tarence.model.person.Name;
 import seedu.tarence.model.person.Person;
 import seedu.tarence.model.person.UniquePersonList;
+import seedu.tarence.model.person.exceptions.DuplicatePersonException;
 import seedu.tarence.model.student.Student;
 import seedu.tarence.model.tutorial.TutName;
 import seedu.tarence.model.tutorial.Tutorial;
@@ -94,11 +95,26 @@ public class Application implements ReadOnlyApplication {
      * {@code persons} must not contain duplicate students.
      */
     public void setStudents(List<Student> students) {
-        List<Person> personList = new ArrayList<>();
-        for (Student student : students) {
-            personList.add(student);
+        // TODO: To be removed
+        // List<Person> personList = new ArrayList<>();
+        // for (Student student : students) {
+        //     personList.add(student);
+        // }
+        // this.students.setPersons(personList);
+
+        List<Student> studentList = new ArrayList<>(getStudentList());
+        for (Student s : students) {
+            boolean hasDuplicates = studentList.stream()
+                    .filter(stud -> !s.isSameStudent(stud))
+                    .anyMatch(stud -> s.isSamePerson(stud));
+            if (hasDuplicates) {
+                throw new DuplicatePersonException();
+            }
+            studentList.add(s);
         }
-        this.students.setPersons(personList);
+        for (Student student : studentList) {
+            addStudentIgnoreDuplicates(student);
+        }
     }
 
     /**

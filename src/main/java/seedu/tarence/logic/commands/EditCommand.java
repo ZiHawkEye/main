@@ -92,17 +92,17 @@ public class EditCommand extends Command {
 
         // Duplicate students includes studentToEdit
         boolean hasDuplicateStudents = duplicateStudents.size() > 1;
-        // Checks if non-duplicate students share the same data fields 
+        // Checks if non-duplicate students share the same data fields
         // Includes students who are exactly identical to target student
         boolean hasDuplicateFields = new ArrayList<>(lastShownList).stream()
                 .filter(student -> !student.isSameStudent(studentToEdit))
                 .anyMatch(student -> student.isSamePerson(editedStudent));
         // TODO: Check this condition again
-        
+
         if (hasDuplicateFields) {
             throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
-        
+
         if (hasDuplicateStudents) {
             for (Student duplicateStudent : duplicateStudents) {
                 Student editedDuplicateStudent = createEditedStudent(duplicateStudent, editStudentDescriptor);
@@ -111,7 +111,7 @@ public class EditCommand extends Command {
         } else {
             model.setStudent(studentToEdit, editedStudent);
         }
-        
+
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedStudent));
     }

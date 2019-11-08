@@ -70,10 +70,8 @@ public class Student extends Person {
         }
 
         boolean hasSameEmail = otherStudent.getEmail().equals(getEmail());
-        boolean hasSameMatNo = (getMatricNum().isPresent() && otherStudent.getMatricNum().equals(getMatricNum()))
-                || (getMatricNum().isEmpty() && otherStudent.getMatricNum().isEmpty()) ;
-        boolean hasSameNusId = getNusnetId().isPresent() && otherStudent.getNusnetId().equals(getNusnetId())
-                || (getNusnetId().isEmpty() && otherStudent.getNusnetId().isEmpty());
+        boolean hasSameMatNo = getMatricNum().isPresent() && otherStudent.getMatricNum().equals(getMatricNum());
+        boolean hasSameNusId = getNusnetId().isPresent() && otherStudent.getNusnetId().equals(getNusnetId());
         boolean hasSameClass = otherStudent.getTutName().equals(getTutName())
                 && otherStudent.getModCode().equals(getModCode());
 

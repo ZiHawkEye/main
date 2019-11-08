@@ -19,7 +19,6 @@ import seedu.tarence.logic.commands.exceptions.CommandException;
 import seedu.tarence.model.Model;
 import seedu.tarence.model.builder.StudentBuilder;
 import seedu.tarence.model.module.ModCode;
-import seedu.tarence.model.person.exceptions.DuplicatePersonException;
 import seedu.tarence.model.student.Student;
 import seedu.tarence.model.tutorial.TutName;
 import seedu.tarence.model.tutorial.Tutorial;
