@@ -37,7 +37,7 @@ public class UndoCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        assert true : "Undo command requires Storage to function properly";
+        assert false : "Undo command requires Storage to function properly";
         throw new CommandException("Error with UndoCommand.java's execution path");
     }
 
@@ -49,7 +49,9 @@ public class UndoCommand extends Command {
                     numOfStatesToUndo, storage.maxNumberOfRollbacksAllowed());
 
             if (storage.maxNumberOfRollbacksAllowed() == 0) {
+
                 errorMessage = "Unable to undo as there are no state-altering commands eecuted in this session";
+
             }
 
             throw new CommandException(errorMessage);

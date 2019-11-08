@@ -324,4 +324,5 @@ public interface Model {
     boolean hasInputChanged();
 
     void setModel(ReadOnlyApplication application);
+
 }

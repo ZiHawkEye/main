@@ -630,11 +630,11 @@ Sets the start date of the semester. Determines dates of tutorial Events.
 
 Format:
 * `setSemStart` sd/[START_DATE]
-* START_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359
+* START_DATE follows the format of dd-mm-yy e.g 31-10-2019
 
 Example:
 
-* setSemStart sd/31-12-2001 1200
+* setSemStart sd/31-12-2001
 
 [TIP]
 ====
@@ -664,11 +664,19 @@ Example:
 ****
 
 
-=== Clearing all entries : `clear` [coming in v2.0]
+=== Clearing all entries : `clear`
 
 Clears all entries from the T.A.rence. +
 
 Format: `clear`
+
+Example:
+
+`clear`
+
+****
+* Resets the application state to a clean state.
+****
 
 === Mark Participation for a Student : `classPart` [coming in v2.0]
 

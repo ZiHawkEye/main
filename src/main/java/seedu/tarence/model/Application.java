@@ -293,7 +293,6 @@ public class Application implements ReadOnlyApplication {
     }
 
     ////=================== module-level operations    =================================================================
-
     /**
      * Adds a module to the application.
      * The module must not already exist in the application.
