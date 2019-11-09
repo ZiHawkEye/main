@@ -99,7 +99,7 @@ public class JsonStateStorage implements ApplicationStateStorage {
             Module.setSemStart(currSemStart);
 
             // Only saves the state when there is a change with the current state
-            if (!latestApplication.equalsUsingStringComparison(application)) {
+            if (!latestApplication.equalsUsingStringComparison(application) || !prevSemStart.equals(currSemStart)) {
 
                 // Save the application state
                 FileUtil.createIfMissing(filePath);
