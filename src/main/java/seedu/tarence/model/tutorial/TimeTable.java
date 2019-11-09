@@ -1,5 +1,6 @@
 package seedu.tarence.model.tutorial;
 
+import static seedu.tarence.commons.util.AppUtil.checkArgument;
 import static seedu.tarence.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.time.DayOfWeek;
@@ -18,6 +19,8 @@ import seedu.tarence.model.module.Module;
 public class TimeTable {
     // By default, tutorials run from weeks 3-13
     public static final String DEFAULT_WEEKS = "3-13";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Lessons should be contained within a single day.";
 
     private final Duration duration;
     private final DayOfWeek day;
@@ -30,6 +33,7 @@ public class TimeTable {
     public TimeTable(DayOfWeek day, LocalTime startTime,
             Set<Week> weeks, Duration duration) {
         requireAllNonNull(day, startTime, weeks, duration);
+        checkArgument(isValidTimeTable(startTime, duration), MESSAGE_CONSTRAINTS);
         this.day = day;
         this.startTime = startTime;
         this.weeks = weeks;
@@ -71,6 +75,13 @@ public class TimeTable {
             }
         }
         return new Week(13);
+    }
+
+    /**
+     * Returns true if time slot is contained within a single day.
+     */
+    public static boolean isValidTimeTable(LocalTime startTime, Duration duration) {
+        return Duration.between(LocalTime.MIN, startTime).plus(duration).toDays() == 0;
     }
 
     /**
