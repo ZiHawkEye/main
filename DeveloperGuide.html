@@ -1179,8 +1179,10 @@ previous semesters taught</p></td>
 </div>
 <h3 id="use-case-new-tutorial-entry" class="discrete">Use case: New tutorial entry</h3>
 <div class="paragraph">
-<p>Precondition: User selects the command to add a new tutorial.
-<strong>MSS</strong></p>
+<p>Precondition: User selects the command to add a new tutorial.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1221,9 +1223,39 @@ previous semesters taught</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>1b1. System shows an error message showing that the given module does not exist.</p>
+<p>1b1. System searches for similar modules in the application to the given module.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a. System finds one or more similar modules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a1. System suggests alternative values to user.</p>
+</li>
+<li>
+<p>1b1a2. User selects one of the options.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b1b. System finds no similar modules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1b1. System shows an error message showing that the given module does not exist.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -1244,10 +1276,84 @@ previous semesters taught</p></td>
 </li>
 </ul>
 </div>
+<h3 id="use-case-deleting-tutorials" class="discrete">Use case: Deleting tutorials</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong>: User selects the command to delete a tutorial.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to a delete a tutorial of a given index.</p>
+</li>
+<li>
+<p>System deletes the tutorial.</p>
+</li>
+<li>
+<p>System displays a confirmation message of the deletion.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The entered index is out of range.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. The system displays an error message and alerts the user that their input is out of range.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The entered value for the index is negative, or not a parsable integer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System displays an error message along with a prompt on the correct command usage.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The tutorial to be deleted contains one or more students.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System displays a message informing the user that the tutorial is not empty, and prompts for confirmation.</p>
+</li>
+<li>
+<p>1c2. User confirms the delete action.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-new-student-entry" class="discrete">Use case: New student entry</h3>
 <div class="paragraph">
-<p><strong>Precondition</strong>: User selects the command to add a new student.
-<strong>MSS</strong></p>
+<p><strong>Precondition</strong>: User selects the command to add a new student.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1285,11 +1391,35 @@ tutorial and module.</p>
 </div>
 </li>
 <li>
-<p>1b. The given tutorial does not exist.</p>
+<p>1b. The given module or tutorial does not exist.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1b1. System shows an error message that the given tutorial does not exist.</p>
+<p>1b1. System searches for similar module-tutorial combinations in the application to the given module and tutorial.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a. System finds one or more similar combinations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a1. System suggests alternative values to user.</p>
+</li>
+<li>
+<p>1b1a2. User selects one of the options.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b1b. System finds no similar combinations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1b1. System shows an error message showing that the given module or tutorial does not exist.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1297,14 +1427,7 @@ tutorial and module.</p>
 </ul>
 </div>
 </li>
-<li>
-<p>1c. The given module does not exist.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>1c1. System shows an error message that the given module does not exist.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+</ul>
 </div>
 </li>
 </ul>
@@ -1399,12 +1522,6 @@ tutorial and module.</p>
 <ol class="arabic">
 <li>
 <p>User request to delete a student from a particular tutorial and module.</p>
-</li>
-<li>
-<p>System prompts for confirmation with full details of student.</p>
-</li>
-<li>
-<p>User enters confirmation.</p>
 </li>
 <li>
 <p>System deletes student and shows confirmation.</p>
@@ -1510,17 +1627,17 @@ tutorial and module.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-post-class-attendance" class="discrete">Use case: Post class attendance.</h3>
+<h3 id="use-case-mark-class-attendance" class="discrete">Use case: Mark class attendance.</h3>
 <div class="paragraph">
 <p><strong>Preconditions:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Given module exists in the system.</p>
+<p>User selects the command to mark a tutorial class' attendance.</p>
 </li>
 <li>
-<p>User selects the command to mark a tutorial class' attendance.</p>
+<p>The given tutorial-module combination exists in the system.</p>
 </li>
 </ol>
 </div>
@@ -1530,10 +1647,13 @@ tutorial and module.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to enter attendance for class for particular week.</p>
+<p>User requests to enter attendance for a student in a particular tutorial and module for particular week.</p>
 </li>
 <li>
-<p>Application enters attendance for class in the given week.</p>
+<p>System records attendance for the student.</p>
+</li>
+<li>
+<p>System displays confirmation message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1546,35 +1666,30 @@ tutorial and module.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The given tutorial does not exist.</p>
+<p>1a. No student name is supplied.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1a1. System shows an error message that the given tutorial does not exist.</p>
+<p>1a1. System displays a student in the tutorial and prompts user to mark attendance for that student.</p>
+</li>
+<li>
+<p>1a2. User enters attendance for displayed student.</p>
 <div class="paragraph">
-<p>User case ends.</p>
+<p>Steps 1a1 and 1a2 are repeated for each student in the tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>1b. The given tutorial class already has its attendance marked for that week.</p>
+<p>1b. The given input is in an invalid format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1b1. Application shows an error message that the class already has its
-attendance marked for that week</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>1c. The given input is in an invalid format.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>1c1. System shows an error message showing the correct format to add a module.</p>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
@@ -1987,4 +2102,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 10:39:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:26:01 UTC</div></div></div></body></html>

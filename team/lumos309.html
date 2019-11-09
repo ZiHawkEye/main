@@ -24,47 +24,96 @@
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="major-enhancement-autocorrect-and-autocomplete-systems"><a class="link" href="#major-enhancement-autocorrect-and-autocomplete-systems">Major Enhancement: Autocorrect and autocomplete systems</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added autocorrect and autocomplete systems to the input field.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Autocorrect picks out minor mistakes in fields like student names and module codes, and suggests similar valid commands. Autocomplete provides suggestions to complete partial inputs by the user.</p>
+<p><em>What it does</em>: Autocorrect picks out minor mistakes in fields like student names and module codes, and suggests similar valid commands. Autocomplete provides suggestions to complete partial inputs by the user.</p>
 </li>
 <li>
-<p>Justification: As a CLI-focused application, the user will likely do a considerable amount of typing. Especially for longer commands, an autocorrect feature can save the user from having to retype lengthy lines of text. Meanwhile, autocomplete helps the user fill in names, a useful feature if the TA has a large number of students or classes.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>: Added a command history feature that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>:</p>
+<p><em>Justification</em>: As a CLI-focused application, the user will likely do a considerable amount of typing. Especially for longer commands, an autocorrect feature can save the user from having to retype lengthy lines of text. Meanwhile, autocomplete helps the user fill in names, a useful feature if the TA has a large number of students or classes.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/commits/master?author=lumos309">Commits</a>],
+<p><strong>Details</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Autocorrect generates alternative commands when the user&#8217;s input does not match data within the application. When there are multiple fields that may have been entered incorrectly (e.g. tutorial names and module codes), T.A.rence attempts to generate different combinations of possible valid values. Fuzzy string matching is used to find data strings that are similar to the user&#8217;s input.</p>
+</li>
+<li>
+<p>Autocomplete suggests data values to complete the user&#8217;s current partial input, based on the last detected prefix. It also provides command keyword prompts when appropriate.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Credits</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java implementation of FuzzyWuzzy fuzzy string matching: <a href="https://github.com/xdrop/fuzzywuzzy" class="bare">https://github.com/xdrop/fuzzywuzzy</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancements"><a class="link" href="#minor-enhancements">Minor Enhancements</a></h3>
+<div class="paragraph">
+<p><strong>Command History</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Past commands accessible using the "up" and "down" arrow keys, helping users save time when inputting multiple similar commands [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/98">PR #98</a>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Basic CRUD Commands</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commands for deleting modules and tutorials [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/36">PR #36</a>]</p>
+</li>
+<li>
+<p>Command for adding students [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/22">PR #28</a>]</p>
+</li>
+<li>
+<p>Multiple input formats for weeks of semester to enhance usability [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/52">PR #52</a>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Confirmation Prompts</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Safeguard against unintentional deletion of data by displaying a confirmation dialogue when attempting to delete non-empty modules or tutorial [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/54">PR #54</a>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Scrolling through list display using key inputs</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lists of students, tutorials, and modules scrollable using "PageUp" and "PageDown" keys, maintaining CLI-only interaction [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/187">PR #187</a>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>All code contributed:
+[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/commits/master?author=lumos309">Commits</a>],
 [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+author%3Alumos309+">Pull Requests</a>],
-[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=lumos309&amp;tabRepo=AY1920S1-CS2103-T14-2%2Fmain%5Bmaster%5D">RepoSense Dashboard</a>].</p>
+[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=lumos309&amp;tabRepo=AY1920S1-CS2103-T14-2%2Fmain%5Bmaster%5D">RepoSense Dashboard</a>].</em></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Other contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Coming soon&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -81,24 +130,15 @@
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in lumos309.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#enhancements">enhancements</a></p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>Parts of the main features:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in lumos309.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#3-features">features</a></p>
-</dd>
-</dl>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#enhancements">Enhancements</a>]</p>
+</li>
+<li>
+<p>Parts of the [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#3-features">main features</a>]</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -115,21 +155,18 @@
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in lumos309.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Logic">Logic</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in lumos309.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocorrect-feature">Autocorrect</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in lumos309.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocomplete-feature">Autocomplete</a></p>
-</dd>
-</dl>
+<div class="ulist">
+<ul>
+<li>
+<p>System Design: [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Logic">Logic Component</a>]</p>
+</li>
+<li>
+<p>Enhancements: [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocomplete-feature">Autocomplete</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocorrect-feature">Autocorrect</a>]</p>
+</li>
+<li>
+<p>Parts of [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#appendix-c-use-cases">Appendix C: Use Cases</a>]</p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 10:39:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:26:01 UTC</div></div></div></body></html>
