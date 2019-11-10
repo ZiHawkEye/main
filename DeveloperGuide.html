@@ -290,26 +290,18 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Student&gt;</code> that can be 'observed'</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Tutorial&gt;</code> that can be 'observed'</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Module&gt;</code> that can be 'observed'</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -699,6 +691,22 @@ If the user uses both the indexing and full input format, the command will throw
 <div class="content">
 <img src="images/MarkAttendanceActivityDiagram.png" alt="MarkAttendanceActivityDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>The MarkAttendanceCommand has two formats, the first with a student&#8217;s name specified and the other without. Specifying the student name will toggle the attendance of the student in the tutorial, while the other format will mark/toggle the attendance of the entire tutorial sequentially.
+For the second case, the application will prompt the user to mark/toggle the attendance of each student in the tutorial one by one.
+Errors will be thrown if the tutorial/module/student cannot be found, or if the week specified is invalid.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction between the Logic componenents for marking the attendance of a single student.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MarkAttendanceSequenceDiagram.png" alt="MarkAttendanceSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Entering the input will call the execute() method in LogicManager, which identifies the command as a MarkAttendanceCommand via ApplicationParser.parse(). MarkAttendanceCommand.parse() is then called to parse the input and extract the relevant information (tutorial name, module code, student name) which is used to initialize the MarkAttendanceCommand, which finally modifies the student&#8217;s attendance when executed.</p>
 </div>
 </div>
 </div>
@@ -2102,4 +2110,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:55:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
