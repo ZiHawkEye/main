@@ -71,6 +71,7 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 ** Documentation:
 *** Edited User Guide: link:{prURL}/120[#120], link:{prURL}/162[#162]
 *** Edited Developer guide: link:{prURL}/94[#94]
+*** Improved test coverage: link:{prURL}/99[#99], link:{prURL}/51[#51], link:{prURL}/15[#15]
 
 == Contributions to the User Guide
 
