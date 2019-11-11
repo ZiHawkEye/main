@@ -72,15 +72,7 @@ include::../UserGuide.adoc[tag=FeatureMarkAttendance]
 
 include::../UserGuide.adoc[tag=FeatureExportAttendance]
 
-include::../UserGuide.adoc[tag=FeatureSetAssignmentScore]
-
 include::../UserGuide.adoc[tag=FeatureAddEvent]
-
-include::../UserGuide.adoc[tag=FeatureDeleteEvent]
-
-include::../UserGuide.adoc[tag=FeatureEditEvent]
-
-include::../UserGuide.adoc[tag=FeatureListEvent]
 
 include::../UserGuide.adoc[tag=FeatureSetSemStart]
 
@@ -90,12 +82,7 @@ include::../UserGuide.adoc[tag=FeatureSetSemStart]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-<<<<<<< HEAD
-include:: https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#24-model-component[modelComponent]
-include:: https://github.com/ZiHawkEye/main/blob/master/docs/DeveloperGuide.adoc#mark-attendance-feature[markAttendance]
-=======
 include::../DeveloperGuide.adoc[tag=model]
 
 include::../DeveloperGuide.adoc[tag=MarkAttendanceFeature]
 
->>>>>>> 430908d87f44cc72e7ca496304225a672ba2b77e
