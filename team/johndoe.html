@@ -152,24 +152,61 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">[Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<h3 id="undo-feature"><a class="link" href="#undo-feature">Undo feature</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The undo feature allows the user to undo multiple commands at once.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The undo mechanism is facilitated by <code>JsonStateStorage</code>.
+It extends <code>TARence</code> with an undo history, stored externally as a <code>stateXX.json</code> file
+where 'XX' represents the sequential state of json files committed.</p>
+</div>
+<div class="paragraph">
+<p>It relies on the following operations from Storage, exposed via the <code>Storage</code> interface.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>Storage#isValidNumberOfRollbacks(Integer numberOfStatesToUndo)</code>&#8201;&#8212;&#8201;Checks if the specified number of undo commands
+to execute is valid.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>Storage#getLatestStateIndex()</code>&#8201;&#8212;&#8201;Obtains the largest state stored. Used to obtain the
+state number which is required.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>Storage#getSpecifiedState()</code>&#8201;&#8212;&#8201;Obtains the required state to reset the model to.</p>
+</li>
+<li>
+<p><code>Storage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the application state into <code>application.json</code>. This method additionally calls
+<code>JsonStateStorage#saveApplication()</code>, which is explained below.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It relies on the following operation from Model, exposed via the 'Model' interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#setModel(`ReadOnlyApplication</code>)`&#8201;&#8212;&#8201;Resets the model to the supplied application state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, it relies on the following operation from  JsonStateStorage, not exposed via the Storage interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JsonStateStorage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the current application state to file if there is a change in state.
+The files are saved as <code>stateXX.json</code>, where the file name is chronologically generated.</p>
+</li>
+<li>
+<p><code>JsonStateStorage#stateStack</code>&#8201;&#8212;&#8201;A private attribute, which keeps track of the current and
+previous states. Its implementation is similar to the <code>currentStatePointer</code> used in AB4.</p>
 </li>
 </ul>
 </div>
@@ -177,10 +214,10 @@ Additionally, it implements the following operations:</p>
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario and how the undo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>JsonStateStorage</code> will be initialized with the initial json file, <code>state1.json</code> and the <code>stateStack</code> will contain the value <code>1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -188,7 +225,18 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>addModule m/CS2103</code> command to add the module <code>CS2103</code>
+in the application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>addModule</code> command calls <code>Storage#saveApplication()</code>, which calls
+<code>JsonStateStorage#saveApplication()</code>,
+causing the modified application state, after the <code>addModule m/CS2103</code> command
+executes, to be saved externally in the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -196,7 +244,16 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>addTutorial tn/Tutorial 01 &#8230;&#8203;</code> to add a new Tutorial. The <code>addTutorial</code> command also calls <code>JsonStateStorage#saveApplication()</code>.</p>
+</div>
+<div class="paragraph">
+<p>As <code>JsonStateStorage#saveApplication()</code> detects that there has been a state change with the latest saved state (<code>state0.json</code>),
+the modified application
+state is saved externally to the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The <code>stateStack</code> is correspondingly updated (The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -210,13 +267,34 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+If a command fails its execution, it will not call <code>storage#saveApplication()</code>, so the
+application state will not be saved.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the tutorial, <code>Tutorial 01</code> was a mistake, and decides to undo that action
+by executing the <code>undo</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will first verify that the number of commands is valid by calling
+<code>storage#isValidNumberOfRollbacks</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the number of undo commands is valid, it will call <code>storage#getLatestStateIndex</code> to
+get the position of the current state pointer (which is the number on the top
+of stateStack).</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will then call <code>storage#getSpecifiedState()</code> to retrieve the desired
+state to undo from. In <code>storage#getSpecifiedState()</code>, the internal <code>stateStack</code> will
+pop the numbers until it gets to the required state number, to ensure that it
+the "pointer" is at the correct state.</p>
+</div>
+<div class="paragraph">
+<p>With the desired state retrieved, <code>undo</code> command will call <code>model#setModel(application)</code> to
+reset the application to the retrieved state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -230,7 +308,12 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>stateStack.peek()</code> is at index / integer 0, pointing to the
+initial application state,
+then there are no previous application states to restore.
+The <code>undo</code> command uses <code>storage#isValidNumberOfRollbacks(number of states to undo)</code>
+to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -256,34 +339,16 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
+<p>Step 5. The user then decides to execute the command <code>listAssignments</code>. Commands that
+do not modify the address book, such as <code>listAssignments</code>, will not result in a saved state.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p><code>JsonStateStorage#saveApplication()</code> is still called. However, since there is no change with
+the previous state, <code>JsonStateStorage#saveApplication()</code> will not save the current application state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
 </div>
 </div>
 <div class="paragraph">
@@ -302,11 +367,37 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire application state into Hard Drive.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Won&#8217;t result in performance issues if there are many states as it won&#8217;t use up valuable RAM.</p>
+</li>
+<li>
+<p>Cons: May have performance issues when reading the file from Hard Drive if the json file is large.</p>
+</li>
+<li>
+<p>Cons: Suppose that "undo u/50" is executed, from state 70. State 20 will be loaded into memory.
+Subsequent states (ie state 21 onwards) will only overwrite the already present state 21 file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The redundant states are not deleted from the hard disk. Only references to those states
+,which is in the stateStack, are removed. However this is a minor problem as once the
+application is closed or started, it will automatically clear any state files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> AB3 suggested implementation: Saves the entire application state into RAM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implememnt.</p>
 </li>
 <li>
 <p>Cons: May have performance issues in terms of memory usage.</p>
@@ -315,11 +406,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 3:</strong> Individual command knows how to undo/redo by itself.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>deleteTutorial</code>, just save the tutorial being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -335,7 +426,26 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use a stack to store the history of application states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Eliminates redundancy as previous states not needed will be overwritten.</p>
+</li>
+<li>
+<p>Cons: Leftover files of undone states are present in the hard drive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (better choice):</strong> Use a stack as in Alternative 1.
+When <code>undo</code> command is executed, in addition to popping the stack, the application will
+delete the corresponding json files. This reduces the likelihood of accidentally reading
+redundant data.</p>
+</li>
+<li>
+<p><strong>Alternative 3 (AB3 choice):</strong> Use a list to store the history of address book states.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -348,7 +458,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 4:</strong> Use <code>HistoryManager</code> for undo.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -381,4 +491,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>

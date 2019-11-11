@@ -184,45 +184,512 @@ considered in the process.</p>
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#deleting-a-module-deletemodule">deleteModule</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#deleting-a-tutorial-deletetutorial">deleteTutorial</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#deleting-a-student-deletestudent">deleteStudent</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#editing-a-student-edit">edit</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#searching-student-by-name-find">find</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#listing-students-from-a-tutorial-list">list</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#display-tutorial-class-test-results-displayassignmentscore">displayAssignmentScore</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#display-tutorial-class-attendance-displayattendance">displayAttendance</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/UserGuide.adoc#changing-the-ui-tab-cd">cd</a></p>
-</dd>
-</dl>
+<div class="sect2">
+<h3 id="deleting-a-module-code-deletemodule-code"><a class="link" href="#deleting-a-module-code-deletemodule-code">Deleting a Module : <code>deleteModule</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing module from T.A.rence, based on it&#8217;s module list index.<br>
+Format: <code>deleteModule INDEX</code>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the module at the specified <code>INDEX</code> (Based off the module list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed module list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the students and tutorials inside the module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteModule 1</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively, you can use the module code to specify the module to be deleted.
+The format will be: <code>deleteModule m/[MOD_CODE]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g deleteModule m/GER1000</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>deletemod</code>, <code>delmodule</code>, <code>delmod</code>, `deletemodule</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-tutorial-code-deletetutorial-code"><a class="link" href="#deleting-a-tutorial-code-deletetutorial-code">Deleting a Tutorial : <code>deleteTutorial</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing tutorial from T.A.rence, based on it&#8217;s tutorial list index.<br>
+Format: <code>deleteTutorial INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the tutorial at the specified <code>INDEX</code> (Based off the tutorial list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed tutorial list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the tutorial from the existing module and students who are in the tutorial.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteTutorial 1</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternatively, You can use the module code and tutorial name to specify the tutorial to be deleted.<br>
+If the tutorial name is unique, you can simply specify the tutorial name.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The format will be: <code>deleteTutorial tn/[TUTORIAL_NAME]</code></p>
+</li>
+<li>
+<p>E.g deleteTutorial tn/tut1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If there are multiple tutorials with the same name, you will need to specify the module code.<br>
+The format will then be <code>deleteTutorial tn/[TUTORIAL_NAME] m/[MOD_CODE]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g deleteTutorial tn/Lab 1 m/PC1431</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>deletetut</code>, <code>deleteclass</code>, <code>deltutorial</code>, <code>deltut</code>, <code>delclass</code>, <code>deletetutorial</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-student-code-deletestudent-code"><a class="link" href="#deleting-a-student-code-deletestudent-code">Deleting a Student : <code>deleteStudent</code></a></h3>
+<div class="paragraph">
+<p>Deletes an existing student from T.A.rence, based on their student list index.<br>
+Format: <code>deleteStudent INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the student at the specified <code>INDEX</code> (Based off the student list).</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed student list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>This will also remove the student from the existing tutorial/module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list 2</code><br>
+<code>deleteStudent 2</code><br>
+Deletes the 2nd student in the 2nd tutorial.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>deleteStudent 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>deletestu</code>, <code>deletestud</code>, <code>delstudent</code>, <code>delstu</code>, <code>delstud</code>, <code>deletestudent</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-student-code-edit-code"><a class="link" href="#editing-a-student-code-edit-code">Editing a Student : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Allows user to edit an existing student information. Everything except the module and tutorial of the student can be
+edited.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit [INDEX OF STUDENT] n/[EDITED_STUDENT_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 n/Ben Leong</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="searching-student-by-name-code-find-code"><a class="link" href="#searching-student-by-name-code-find-code">Searching Student by Name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Searches and displays student particulars based on name. The search can be based on partial strings that match
+and need not be the full name of the student.<br>
+Format: <code>find [SEARCH_TERM]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Student matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find Betsy Tim John</code><br>
+Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-tutorial-class-test-results-code-displayassignmentscore-code"><a class="link" href="#display-tutorial-class-test-results-code-displayassignmentscore-code">Display Tutorial Class' Test Results : <code>displayAssignmentScore</code></a></h3>
+<div class="paragraph">
+<p>Allows user to display overall results for an exam or assignment. This can be in the form of a graph or table,</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="400">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AssignmentTable.png" alt="AssignmentTable" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>displayAssignmentScore</code> i/TUTORIAL_INDEX n/ASSIGNMENT_NAME f/DISPLAY_FORMAT`.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>displayAssignmentScore</code> i/1 n/Lab01 f/graph</p>
+</li>
+<li>
+<p><code>displayAssignmentScore</code> i/1 n/Lab01 f/table</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>displayscore</code>, <code>displayassignment</code>, <code>displayassignment</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When a new student is added/deleted/modified, the assignment will need to be refreshed.</p>
+</li>
+<li>
+<p>i.e you will need to enter the command again to display the updated scores.</p>
+</li>
+<li>
+<p>When displaying the graph format, a short lag may follow.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-tutorial-class-assignments-code-displayassignments-code"><a class="link" href="#display-tutorial-class-assignments-code-displayassignments-code">Display tutorial class assignments : <code>displayAssignments</code></a></h3>
+<div class="paragraph">
+<p>Allows user to list out existing assignments in a tutorial.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListAssignment.png" alt="ListAssignment" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>displayAssignments `TUTORIAL_INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>displayAssignments</code> 1</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>listassignments</code>, <code>lista</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-tutorial-class-attendance-code-displayattendance-code"><a class="link" href="#display-tutorial-class-attendance-code-displayattendance-code">Display Tutorial Class' Attendance : <code>displayAttendance</code></a></h3>
+<div class="paragraph">
+<p>Allows user to display overall attendance for a class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AttendanceDisplay.png" alt="AttendanceDisplay" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Full Format: <code>displayAttendance m/MOD_CODE tn/TUTORIAL_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Shortcut Format: <code>displayAttendance i/TUTORIAL_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>displayAttendance</code> m/CS1010 tn/Lab Session</p>
+</li>
+<li>
+<p><code>displayAttendance</code> i/1</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command Synonyms: <code>displayatt</code>, <code>showattendance</code>, <code>showatt</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When a new student is added/deleted/modified, the attendance will need to be refreshed.</p>
+</li>
+<li>
+<p>i.e you will need to enter the command again to display the updated attendance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-students-from-a-tutorial-code-list-code"><a class="link" href="#listing-students-from-a-tutorial-code-list-code">Listing Students from a Tutorial : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Lists all students from a particular tutorial slot. If no index is given, all students will be listed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code> TUTORIAL_INDEX</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list 1</code></p>
+</li>
+<li>
+<p><code>list</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>liststu</code>, <code>liststud</code>, <code>liststudents</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-ui-tab-code-cd-code"><a class="link" href="#changing-the-ui-tab-code-cd-code">Changing the UI tab : <code>cd</code></a></h3>
+<div class="paragraph">
+<p>Toggles the tab switching between tutorial(t), module(m) and student(s) list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>cd</code> TAB_TO_SWITCH</p>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>changetab</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cd t</code></p>
+</li>
+<li>
+<p><code>cd m</code></p>
+</li>
+<li>
+<p><code>cd s</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -239,17 +706,180 @@ considered in the process.</p>
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/DeveloperGuide.adoc#edit-feature">edit</a></p>
-</dd>
-<dt class="hdlist1">Unresolved directive in ellieyee.adoc - include</dt>
-<dd>
-<p><a href="https://github.com/Ellieyee/main/blob/pp-update/docs/DeveloperGuide.adoc#list-feature">tag=list</a></p>
-</dd>
-</dl>
+<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>deleteStudent 1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+</div>
+<div class="title">Figure 1. Component interactions for <code>deleteStudent 1</code> command</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
+</div>
+<div class="title">Figure 2. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/src/main/java/seedu/tarence/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">Edit feature</a></h3>
+<div class="paragraph">
+<p>The <code>edit</code> feature aims to help users update student details in our application.
+When there are changes to be made for a student (e.g. updating their email or adding a matric number),
+users will want to be able to update their student&#8217;s details easily without going through the hassle of deleting and adding new student information.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>edit</code> command must include one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Email</p>
+</li>
+<li>
+<p>Matric number</p>
+</li>
+<li>
+<p>NusnetID</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The user is not allowed to change the tutorial or module that the student is in.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>edit</code> command will also automatically be updated within the application&#8217;s storage system and the new student&#8217;s details will be reflected in the application&#8217;s GUI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditCommandSequenceDiagram.png" alt="EditCommandSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-edit-executes"><a class="link" href="#aspect-how-edit-executes">Aspect: How edit executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deletes old copy of and adds new modified copy</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of time complexity.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Modify the existing version of the student directly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory</p>
+</li>
+<li>
+<p>Cons: Will have to go through each of the student/tutorial/module lists and update them. Which involves many layers of looping (higher chance of regressions).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-feature"><a class="link" href="#list-feature">list feature</a></h3>
+<div class="paragraph">
+<p>The <code>list</code> command lets T.A.rence display all students or students from a specific tutorial.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>list</code> command can include no additional input, or the index of the tutorial. When the user executes the <code>list</code> command, the following steps are taken by the application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The CommandParser determines the format of user input. If not input is provided, all students are displayed.</p>
+</li>
+<li>
+<p>When the <code>list</code> class is invoked, it will perform the following actions before displaying the output to the user:</p>
+</li>
+<li>
+<p>Obtains a list of tutorials from the model and filters through the students which belong to the indicated tutorial of choice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram shows the process of invoking the <code>list</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListCommandActivityDiagram.png" alt="ListCommandActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the interaction with the Logic components as described above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListCommandSequenceDiagram.png" alt="ListCommandSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>

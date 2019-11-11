@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>T.A.rence - Draft Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>T.A.rence - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>T.A.rence - Draft Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">T.A.rence</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>T.A.rence - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>T14-2</code></p>
@@ -14,10 +14,8 @@
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
 <li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Model">2.3. Model component</a></li>
+<li><a href="#Design-Commons">2.4. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation-2">3. Implementation</a>
@@ -25,13 +23,12 @@
 <li><a href="#add-student-feature">3.1. Add Student feature</a></li>
 <li><a href="#edit-feature">3.2. Edit feature</a></li>
 <li><a href="#autocorrect-feature">3.3. Autocorrect feature</a></li>
-<li><a href="#autocomplete-feature">3.4. Autocomplete feature</a></li>
-<li><a href="#list-feature">3.5. list feature</a></li>
-<li><a href="#mark-attendance-feature">3.6. Mark Attendance feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#list-feature">3.4. list feature</a></li>
+<li><a href="#mark-attendance-feature">3.5. Mark Attendance feature</a></li>
+<li><a href="#undo-feature">3.6. Undo feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -39,11 +36,7 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a>
-<ul class="sectlevel2">
-<li><a href="#use-case-adding-and-viewing-assignment-score-to-students">C.1. Use case: Adding and viewing assignment score to students</a></li>
-</ul>
-</li>
+<li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a>
 <ul class="sectlevel2">
 <li><a href="#business-domain-rules">D.1. Business/Domain Rules:</a></li>
@@ -168,13 +161,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>deleteStudent 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>deleteStudent 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -206,13 +199,11 @@ The following class plays an important role at the architecture level:</p>
 <p>Executes user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.
+=== Logic component</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicRegularCommandClassDiagram.png" alt="LogicRegularCommandClassDiagram">
@@ -268,7 +259,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.3. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -299,13 +290,11 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>exposes an unmodifiable <code>ObservableList&lt;Module&gt;</code> that can be 'observed'</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>does not depend on any of the other three components.
+=== Storage component</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -329,13 +318,13 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </ul>
 </div>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">2.5.1. Implementation</a></h4>
+<h4 id="implementation"><a class="link" href="#implementation">2.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>When the application is being saved, a list of modules will be serialized into a Json object and written to the file.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">2.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.3.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>Although the application has 3 core components (modules, tutorials and students), to prevent redundant data being written
 and save on storage space, only the modules will be serialized and saved.</p>
@@ -354,7 +343,7 @@ module object.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.4. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.tarence.commons</code> package.</p>
 </div>
@@ -562,14 +551,11 @@ The user is not allowed to change the tutorial or module that the student is in.
 </td>
 <td class="content">
 The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentCommand</code> should end at their destroy markers (X) but due to a limitation of PlantUML, the lifelines reach the end of diagram.
+=== Autocomplete feature
 </td>
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">3.4. Autocomplete feature</a></h3>
 <div class="paragraph">
 <p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
 </div>
@@ -579,8 +565,9 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 </div>
 <div class="title">Figure 10. Structure of the Autocomplete portion of the Logic component</div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.4.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.3.2. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocomplete is implemented at the <code>Parser</code> level. When the user presses the "TAB" key, <code>AutoCompleteHandler</code>  handles the processing of the input, as opposed to <code>ApplicationParser</code> when the "ENTER" key is pressed.</p>
 </div>
@@ -598,12 +585,12 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">3.5. list feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">3.4. list feature</a></h3>
 <div class="paragraph">
 <p>The <code>list</code> command lets T.A.rence display all students or students from a specific tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.5.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>list</code> command can include no additional input, or the index of the tutorial. When the user executes the <code>list</code> command, the following steps are taken by the application:</p>
 </div>
@@ -639,12 +626,12 @@ The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentComma
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-attendance-feature"><a class="link" href="#mark-attendance-feature">3.6. Mark Attendance feature</a></h3>
+<h3 id="mark-attendance-feature"><a class="link" href="#mark-attendance-feature">3.5. Mark Attendance feature</a></h3>
 <div class="paragraph">
 <p>The <code>MarkAttendance</code> command lets T.A.rence mark the attendance of a specified student in a tutorial.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">3.6.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>MarkAttendance</code> command must include the following:</p>
 </div>
@@ -711,24 +698,61 @@ Errors will be thrown if the tutorial/module/student cannot be found, or if the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
+<h3 id="undo-feature"><a class="link" href="#undo-feature">3.6. Undo feature</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The undo feature allows the user to undo multiple commands at once.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-9"><a class="link" href="#implementation-9">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The undo mechanism is facilitated by <code>JsonStateStorage</code>.
+It extends <code>TARence</code> with an undo history, stored externally as a <code>stateXX.json</code> file
+where 'XX' represents the sequential state of json files committed.</p>
+</div>
+<div class="paragraph">
+<p>It relies on the following operations from Storage, exposed via the <code>Storage</code> interface.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>Storage#isValidNumberOfRollbacks(Integer numberOfStatesToUndo)</code>&#8201;&#8212;&#8201;Checks if the specified number of undo commands
+to execute is valid.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>Storage#getLatestStateIndex()</code>&#8201;&#8212;&#8201;Obtains the largest state stored. Used to obtain the
+state number which is required.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>Storage#getSpecifiedState()</code>&#8201;&#8212;&#8201;Obtains the required state to reset the model to.</p>
+</li>
+<li>
+<p><code>Storage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the application state into <code>application.json</code>. This method additionally calls
+<code>JsonStateStorage#saveApplication()</code>, which is explained below.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It relies on the following operation from Model, exposed via the 'Model' interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#setModel(`ReadOnlyApplication</code>)`&#8201;&#8212;&#8201;Resets the model to the supplied application state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, it relies on the following operation from  JsonStateStorage, not exposed via the Storage interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JsonStateStorage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the current application state to file if there is a change in state.
+The files are saved as <code>stateXX.json</code>, where the file name is chronologically generated.</p>
+</li>
+<li>
+<p><code>JsonStateStorage#stateStack</code>&#8201;&#8212;&#8201;A private attribute, which keeps track of the current and
+previous states. Its implementation is similar to the <code>currentStatePointer</code> used in AB4.</p>
 </li>
 </ul>
 </div>
@@ -736,10 +760,10 @@ Additionally, it implements the following operations:</p>
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario and how the undo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>JsonStateStorage</code> will be initialized with the initial json file, <code>state1.json</code> and the <code>stateStack</code> will contain the value <code>1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -747,7 +771,18 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>addModule m/CS2103</code> command to add the module <code>CS2103</code>
+in the application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>addModule</code> command calls <code>Storage#saveApplication()</code>, which calls
+<code>JsonStateStorage#saveApplication()</code>,
+causing the modified application state, after the <code>addModule m/CS2103</code> command
+executes, to be saved externally in the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -755,7 +790,16 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>addTutorial tn/Tutorial 01 &#8230;&#8203;</code> to add a new Tutorial. The <code>addTutorial</code> command also calls <code>JsonStateStorage#saveApplication()</code>.</p>
+</div>
+<div class="paragraph">
+<p>As <code>JsonStateStorage#saveApplication()</code> detects that there has been a state change with the latest saved state (<code>state0.json</code>),
+the modified application
+state is saved externally to the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The <code>stateStack</code> is correspondingly updated (The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -769,13 +813,34 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+If a command fails its execution, it will not call <code>storage#saveApplication()</code>, so the
+application state will not be saved.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the tutorial, <code>Tutorial 01</code> was a mistake, and decides to undo that action
+by executing the <code>undo</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will first verify that the number of commands is valid by calling
+<code>storage#isValidNumberOfRollbacks</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the number of undo commands is valid, it will call <code>storage#getLatestStateIndex</code> to
+get the position of the current state pointer (which is the number on the top
+of stateStack).</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will then call <code>storage#getSpecifiedState()</code> to retrieve the desired
+state to undo from. In <code>storage#getSpecifiedState()</code>, the internal <code>stateStack</code> will
+pop the numbers until it gets to the required state number, to ensure that it
+the "pointer" is at the correct state.</p>
+</div>
+<div class="paragraph">
+<p>With the desired state retrieved, <code>undo</code> command will call <code>model#setModel(application)</code> to
+reset the application to the retrieved state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -789,7 +854,12 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>stateStack.peek()</code> is at index / integer 0, pointing to the
+initial application state,
+then there are no previous application states to restore.
+The <code>undo</code> command uses <code>storage#isValidNumberOfRollbacks(number of states to undo)</code>
+to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -815,34 +885,16 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
+<p>Step 5. The user then decides to execute the command <code>listAssignments</code>. Commands that
+do not modify the address book, such as <code>listAssignments</code>, will not result in a saved state.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p><code>JsonStateStorage#saveApplication()</code> is still called. However, since there is no change with
+the previous state, <code>JsonStateStorage#saveApplication()</code> will not save the current application state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
 </div>
 </div>
 <div class="paragraph">
@@ -855,17 +907,43 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire application state into Hard Drive.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Won&#8217;t result in performance issues if there are many states as it won&#8217;t use up valuable RAM.</p>
+</li>
+<li>
+<p>Cons: May have performance issues when reading the file from Hard Drive if the json file is large.</p>
+</li>
+<li>
+<p>Cons: Suppose that "undo u/50" is executed, from state 70. State 20 will be loaded into memory.
+Subsequent states (ie state 21 onwards) will only overwrite the already present state 21 file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The redundant states are not deleted from the hard disk. Only references to those states
+,which is in the stateStack, are removed. However this is a minor problem as once the
+application is closed or started, it will automatically clear any state files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> AB3 suggested implementation: Saves the entire application state into RAM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implememnt.</p>
 </li>
 <li>
 <p>Cons: May have performance issues in terms of memory usage.</p>
@@ -874,11 +952,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 3:</strong> Individual command knows how to undo/redo by itself.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>deleteTutorial</code>, just save the tutorial being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -894,7 +972,26 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use a stack to store the history of application states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Eliminates redundancy as previous states not needed will be overwritten.</p>
+</li>
+<li>
+<p>Cons: Leftover files of undone states are present in the hard drive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (better choice):</strong> Use a stack as in Alternative 1.
+When <code>undo</code> command is executed, in addition to popping the stack, the application will
+delete the corresponding json files. This reduces the likelihood of accidentally reading
+redundant data.</p>
+</li>
+<li>
+<p><strong>Alternative 3 (AB3 choice):</strong> Use a list to store the history of address book states.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -907,7 +1004,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 4:</strong> Use <code>HistoryManager</code> for undo.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -925,20 +1022,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -969,7 +1066,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1179,15 +1276,15 @@ previous semesters taught</p></td>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-new-tutorial-entry" class="discrete">Use case: New tutorial entry</h3>
 <div class="paragraph">
 <p>Precondition: User selects the command to add a new tutorial.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1278,15 +1375,15 @@ previous semesters taught</p></td>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-deleting-tutorials" class="discrete">Use case: Deleting tutorials</h3>
 <div class="paragraph">
 <p><strong>Precondition</strong>: User selects the command to delete a tutorial.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1350,15 +1447,15 @@ previous semesters taught</p></td>
 <div class="paragraph">
 <p>Use case resumes from step 2.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-new-student-entry" class="discrete">Use case: New student entry</h3>
 <div class="paragraph">
 <p><strong>Precondition</strong>: User selects the command to add a new student.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1450,15 +1547,15 @@ tutorial and module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-editing-a-student-s-particulars" class="discrete">Use case: Editing a student&#8217;s particulars</h3>
 <div class="paragraph">
 <p><strong>Precondition</strong>: User selects the command to edit a student.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1503,12 +1600,6 @@ tutorial and module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-deleting-a-student" class="discrete">Use case: Deleting a student</h3>
 <div class="paragraph">
 <p><strong>Preconditions:</strong></p>
@@ -1522,6 +1613,12 @@ tutorial and module.</p>
 <p>User selects the command to delete a student.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1566,12 +1663,6 @@ tutorial and module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-listing-students" class="discrete">Use case: Listing students</h3>
 <div class="paragraph">
 <p><strong>Preconditions:</strong></p>
@@ -1585,6 +1676,12 @@ tutorial and module.</p>
 <p>User selects the command to list students of a particular tutorial class.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1629,12 +1726,6 @@ tutorial and module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-mark-class-attendance" class="discrete">Use case: Mark class attendance.</h3>
 <div class="paragraph">
 <p><strong>Preconditions:</strong></p>
@@ -1648,6 +1739,12 @@ tutorial and module.</p>
 <p>The given tutorial-module combination exists in the system.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1701,17 +1798,25 @@ tutorial and module.</p>
 <div class="paragraph">
 <p>User case ends.</p>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-adding-in-hours-clocked" class="discrete">Use case: Adding in hours clocked.</h3>
 <div class="paragraph">
-<p><strong>Preconditions:</strong>
-1. User selects the command to add in the hours.
-2. Given module exists in the system.</p>
+<p><strong>Preconditions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User selects the command to add in the hours.</p>
+</li>
+<li>
+<p>Given module exists in the system.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1771,18 +1876,9 @@ for that week</p>
 <li>
 <p>1c1. System shows an error message showing the correct format to add a module.</p>
 <div class="paragraph">
-<p>User case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="use-case-adding-and-viewing-assignment-score-to-students"><a class="link" href="#use-case-adding-and-viewing-assignment-score-to-students">C.1. Use case: Adding and viewing assignment score to students</a></h3>
-<div class="paragraph">
-<p><strong>Preconditions</strong></p>
+<p>User case ends.
+=== Use case: Adding and viewing assignment score to students
+<strong>Preconditions</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1793,6 +1889,12 @@ for that week</p>
 <p>Given module and tutorial exists in the system.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1838,7 +1940,6 @@ for that week</p>
 </div>
 <div class="paragraph">
 <p><em>{More to be added soon. Stay tuned!}</em></p>
-</div>
 </div>
 </div>
 </div>
@@ -2110,4 +2211,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>

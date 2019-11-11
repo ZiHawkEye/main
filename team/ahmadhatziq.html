@@ -141,7 +141,8 @@ from the saved json state file.</p>
 </li>
 <li>
 <p>The implementation too was challenging as it involves proper serializing and de-serializing
-of the json file.</p>
+of the json file, properly ensuring that a state change is reflected correctly and loading the data
+from json and re-creating the proper specified model.</p>
 </li>
 </ul>
 </div>
@@ -207,8 +208,191 @@ of the json file.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="undo-previously-entered-commands-code-undo-code"><a class="link" href="#undo-previously-entered-commands-code-undo-code">Undo Previously-entered Commands : <code>undo</code></a></h3>
 <div class="paragraph">
-<p><a href="https://github.com/AhmadHatziq/main/blob/master/docs/UserGuide.adoc#undo-previously-entered-commands-undo" class="bare">https://github.com/AhmadHatziq/main/blob/master/docs/UserGuide.adoc#undo-previously-entered-commands-undo</a></p>
+<p>Undos a specified number of actions.</p>
+</div>
+<div class="paragraph">
+<p>Format:
+<code>undo</code> u/[NUMBER_OF_ACTIONS]</p>
+</div>
+<div class="paragraph">
+<p>Undoes any state-altering command from the application.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo u/NUMBER_OF_STATES_TO_UNDO</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>undo u/2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Resets the application state to the previous state.</p>
+</li>
+<li>
+<p>Undo can only be applied to states that are present in that particular session (from application start-up)</p>
+</li>
+<li>
+<p>The <code>NUMBER_OF_STATES_TO_UNDO</code> refers to the previous number of states to undo in that session</p>
+</li>
+<li>
+<p>The <code>NUMBER_OF_STATES_TO_UNDO</code> <strong>must be a positive integer</strong>; 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the T.A.rence.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>clear</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Resets the application state to a clean state.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>All data in T.A.rence is saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+<div class="paragraph">
+<p>Data is saved to "application.json".</p>
+</div>
+<div class="paragraph">
+<p>Temporary state files are created in "/data/states/". On closure of the application, the "/data/states/"
+folder will be automatically deleted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-module-code-addmodule-code"><a class="link" href="#adding-a-module-code-addmodule-code">Adding a Module: <code>addModule</code></a></h3>
+<div class="paragraph">
+<p>Adds a module to T.A.rence.<br>
+Format: <code>addModule m/MODULE_CODE</code>.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addModule m/CS1010</code></p>
+</li>
+<li>
+<p><code>addModule m/ST2132</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Command synonyms: <code>addMod</code>, <code>addmod</code>, <code>addmodule</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-tutorial-slot-code-addtutorial-code"><a class="link" href="#adding-a-tutorial-slot-code-addtutorial-code">Adding a Tutorial Slot : <code>addTutorial</code></a></h3>
+<div class="paragraph">
+<p>Adds a tutorial slot into the specified module.<br>
+Pre-condition: Module must already exist inside application. <br>
+Explanation: Adds a tutorial called Tutorial-01 which starts at 1PM, lasts for 60 minutes,
+             and occurs every Monday during weeks 1,2, and 3 into module CS1010.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addTutorial tn/[TUTORIAL_NAME] st/[START_TIME] dur/[TUTORIAL_DURATION] d/[TUTORIAL_DAY] w/[TUTORIAL_WEEKS] m/[MODULE_CODE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addTutorial tn/Tutorial-01 st/1300 dur/60 d/Mon w/1,2,3 m/CS1010S</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>START_TIME is in the format hhmm.<br>
+TUTORIAL_DURATION is in minutes</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Other input options for <code>weeks</code> field:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>w/even</code> - weeks 4, 6, 8, 10, 12</p>
+</li>
+<li>
+<p><code>w/odd</code> - weeks 3, 5, 7, 9, 11, 13</p>
+</li>
+<li>
+<p><code>w/x-y</code> - weeks x to y inclusive, where x and y are integers from 1 to 13 inclusive</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Omit <code>w/</code> field for the default tutorial weeks (3-13 inclusive).</p>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>addtut</code>, <code>addtutorial</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -225,11 +409,377 @@ of the json file.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><a href="https://github.com/AhmadHatziq/main/blob/master/docs/DeveloperGuide.adoc#storage-component" class="bare">https://github.com/AhmadHatziq/main/blob/master/docs/DeveloperGuide.adoc#storage-component</a></p>
-</div>
 <div class="exampleblock">
 <div class="content">
+<div class="paragraph">
+<p>=== Undo feature
+The undo feature allows the user to undo multiple commands at once.</p>
+</div>
+<div class="paragraph">
+<p>==== Implementation</p>
+</div>
+<div class="paragraph">
+<p>The undo mechanism is facilitated by <code>JsonStateStorage</code>.
+It extends <code>TARence</code> with an undo history, stored externally as a <code>stateXX.json</code> file
+where 'XX' represents the sequential state of json files committed.</p>
+</div>
+<div class="paragraph">
+<p>It relies on the following operations from Storage, exposed via the <code>Storage</code> interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Storage#isValidNumberOfRollbacks(Integer numberOfStatesToUndo)</code>&#8201;&#8212;&#8201;Checks if the specified number of undo commands
+to execute is valid.</p>
+</li>
+<li>
+<p><code>Storage#getLatestStateIndex()</code>&#8201;&#8212;&#8201;Obtains the largest state stored. Used to obtain the
+state number which is required.</p>
+</li>
+<li>
+<p><code>Storage#getSpecifiedState()</code>&#8201;&#8212;&#8201;Obtains the required state to reset the model to.</p>
+</li>
+<li>
+<p><code>Storage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the application state into <code>application.json</code>. This method additionally calls
+<code>JsonStateStorage#saveApplication()</code>, which is explained below.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It relies on the following operation from Model, exposed via the 'Model' interface.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#setModel(`ReadOnlyApplication</code>)`&#8201;&#8212;&#8201;Resets the model to the supplied application state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, it relies on the following operation from  JsonStateStorage, not exposed via the Storage interface:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JsonStateStorage#saveApplication()</code>&#8201;&#8212;&#8201;Saves the current application state to file if there is a change in state.
+The files are saved as <code>stateXX.json</code>, where the file name is chronologically generated.</p>
+</li>
+<li>
+<p><code>JsonStateStorage#stateStack</code>&#8201;&#8212;&#8201;A private attribute, which keeps track of the current and
+previous states. Its implementation is similar to the <code>currentStatePointer</code> used in AB4.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>JsonStateStorage</code> will be initialized with the initial json file, <code>state1.json</code> and the <code>stateStack</code> will contain the value <code>1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>addModule m/CS2103</code> command to add the module <code>CS2103</code>
+in the application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>addModule</code> command calls <code>Storage#saveApplication()</code>, which calls
+<code>JsonStateStorage#saveApplication()</code>,
+causing the modified application state, after the <code>addModule m/CS2103</code> command
+executes, to be saved externally in the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>addTutorial tn/Tutorial 01 &#8230;&#8203;</code> to add a new Tutorial. The <code>addTutorial</code> command also calls <code>JsonStateStorage#saveApplication()</code>.</p>
+</div>
+<div class="paragraph">
+<p>As <code>JsonStateStorage#saveApplication()</code> detects that there has been a state change with the latest saved state (<code>state0.json</code>),
+the modified application
+state is saved externally to the <code>data/states</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The <code>stateStack</code> is correspondingly updated (The latest state number <code>(stateStack.peek() + 1)</code> is pushed onto the stack, which
+corresponds with the json state file saved.)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>storage#saveApplication()</code>, so the
+application state will not be saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that adding the tutorial, <code>Tutorial 01</code> was a mistake, and decides to undo that action
+by executing the <code>undo</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will first verify that the number of commands is valid by calling
+<code>storage#isValidNumberOfRollbacks</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the number of undo commands is valid, it will call <code>storage#getLatestStateIndex</code> to
+get the position of the current state pointer (which is the number on the top
+of stateStack).</p>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code> command will then call <code>storage#getSpecifiedState()</code> to retrieve the desired
+state to undo from. In <code>storage#getSpecifiedState()</code>, the internal <code>stateStack</code> will
+pop the numbers until it gets to the required state number, to ensure that it
+the "pointer" is at the correct state.</p>
+</div>
+<div class="paragraph">
+<p>With the desired state retrieved, <code>undo</code> command will call <code>model#setModel(application)</code> to
+reset the application to the retrieved state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>stateStack.peek()</code> is at index / integer 0, pointing to the
+initial application state,
+then there are no previous application states to restore.
+The <code>undo</code> command uses <code>storage#isValidNumberOfRollbacks(number of states to undo)</code>
+to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>listAssignments</code>. Commands that
+do not modify the address book, such as <code>listAssignments</code>, will not result in a saved state.</p>
+</div>
+<div class="paragraph">
+<p><code>JsonStateStorage#saveApplication()</code> is still called. However, since there is no change with
+the previous state, <code>JsonStateStorage#saveApplication()</code> will not save the current application state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
+</div>
+<div class="paragraph">
+<p>===== Aspect: How undo &amp; redo executes</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire application state into Hard Drive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Won&#8217;t result in performance issues if there are many states as it won&#8217;t use up valuable RAM.</p>
+</li>
+<li>
+<p>Cons: May have performance issues when reading the file from Hard Drive if the json file is large.</p>
+</li>
+<li>
+<p>Cons: Suppose that "undo u/50" is executed, from state 70. State 20 will be loaded into memory.
+Subsequent states (ie state 21 onwards) will only overwrite the already present state 21 file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The redundant states are not deleted from the hard disk. Only references to those states
+,which is in the stateStack, are removed. However this is a minor problem as once the
+application is closed or started, it will automatically clear any state files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> AB3 suggested implementation: Saves the entire application state into RAM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implememnt.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Individual command knows how to undo/redo by itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>deleteTutorial</code>, just save the tutorial being deleted).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>===== Aspect: Data structure to support the undo/redo commands</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a stack to store the history of application states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Eliminates redundancy as previous states not needed will be overwritten.</p>
+</li>
+<li>
+<p>Cons: Leftover files of undone states are present in the hard drive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (better choice):</strong> Use a stack as in Alternative 1.
+When <code>undo</code> command is executed, in addition to popping the stack, the application will
+delete the corresponding json files. This reduces the likelihood of accidentally reading
+redundant data.</p>
+</li>
+<li>
+<p><strong>Alternative 3 (AB3 choice):</strong> Use a list to store the history of address book states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 4:</strong> Use <code>HistoryManager</code> for undo.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+</li>
+<li>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div id="Design-Storage" class="paragraph">
+<p>=== Storage component</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the <code>T.A.rence</code> application data in json format and read it back.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Implementation
+When the application is being saved, a list of modules will be serialized into a Json object and written to the file.</p>
+</div>
+<div class="paragraph">
+<p>==== Design Considerations
+Although the application has 3 core components (modules, tutorials and students), to prevent redundant data being written
+and save on storage space, only the modules will be serialized and saved.</p>
+</div>
+<div class="paragraph">
+<p>This is as the information encapsulated in modules can be used to instantiate tutorial and student objects.</p>
+</div>
+<div class="paragraph">
+<p>A key assumption here is that during the operational usage of the application, data stored in the tutorials and students objects
+correspond to the module object. Ie there are no tutorials or student objects which exist without a corresponding
+module object.</p>
+</div>
+<div class="paragraph">
+<p>Future versions of storage will support saving of Assignment objects.</p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -241,6 +791,4 @@ of the json file.</p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>

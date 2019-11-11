@@ -42,10 +42,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Autocorrect generates alternative commands when the user&#8217;s input does not match data within the application. When there are multiple fields that may have been entered incorrectly (e.g. tutorial names and module codes), T.A.rence attempts to generate different combinations of possible valid values. Fuzzy string matching is used to find data strings that are similar to the user&#8217;s input.</p>
+<p>Autocorrect generates alternative commands when the user&#8217;s input does not match data within the application. When there are multiple fields that may have been entered incorrectly (e.g. tutorial names and module codes), T.A.rence attempts to generate different combinations of possible valid values. Fuzzy string matching is used to find data strings that are similar to the user&#8217;s input. [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/60">PR #60</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/62">PR #62</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/67">PR #67</a>]</p>
 </li>
 <li>
-<p>Autocomplete suggests data values to complete the user&#8217;s current partial input, based on the last detected prefix. It also provides command keyword prompts when appropriate.</p>
+<p>Autocomplete suggests data values to complete the user&#8217;s current partial input, based on the last detected prefix. It also provides command keyword prompts when appropriate. [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/82">PR #82</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/107">PR #107</a>]</p>
 </li>
 </ul>
 </div>
@@ -108,6 +108,22 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Tests to sustain codebase integrity, e.g. [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/105">PR #105</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/196">PR #196</a>]</p>
+</li>
+<li>
+<p>Milestone management, e.g. [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/issues/45">1</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/issues/45">2</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/67">3</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/issues/90">4</a>]</p>
+</li>
+<li>
+<p>Bug reporting for other teams: [<a href="https://github.com/AY1920S1-CS2103-F09-1/main/issues/138">1</a>], [<a href="https://github.com/AY1920S1-CS2103-F09-1/main/issues/140">2</a>], [<a href="https://github.com/AY1920S1-CS2103-F09-1/main/issues/142">3</a>], [<a href="https://github.com/AY1920S1-CS2103-F09-1/main/issues/143">4</a>], [<a href="https://github.com/AY1920S1-CS2103-F09-1/main/issues/144">5</a>]</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><em>All code contributed:
 [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/commits/master?author=lumos309">Commits</a>],
@@ -130,15 +146,127 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="em-enhancements-autocorrect-autocomplete-command-history-em"><a class="link" href="#em-enhancements-autocorrect-autocomplete-command-history-em"><em>Enhancements (Autocorrect, Autocomplete, Command History)</em></a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enhancements"><a class="link" href="#enhancements">Enhancements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>T.A.rence contains a few input correction features to enhance usability.</p>
+</div>
+<div class="sect2">
+<h3 id="autocorrect"><a class="link" href="#autocorrect">Autocorrect</a></h3>
+<div class="paragraph">
+<p>If invalid parameters are detected in the command input, T.A.rence tries to suggest similar alternatives that can be selected and run without having to retype the entire command.</p>
+</div>
+<div class="paragraph">
+<p>E.g. given input</p>
+</div>
+<div class="paragraph">
+<p><code>addTutorial tn/Tut01 m/GET1000 &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>T.A.rence might respond:</p>
+</div>
+<div class="paragraph">
+<p><code>No such module found. Did you mean: 1. GER1000</code></p>
+</div>
+<div class="paragraph">
+<p>Entering the number 1 runs the command <code>addTutorial tn/Tut01 m/GER1000 &#8230;&#8203;</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">Autocomplete</a></h3>
+<div class="paragraph">
+<p>T.A.rence generates and displays real-time suggestions for command words and user data from the application (e.g. module codes and tutorial names), depending on the field the user is currently entering.  Similar to other CLI programs such as Windows' Command Prompt and MacOS' Terminal, pressing the "TAB" key will autofill the input box with the current suggestion. Pressing "CTRL" cycles through the different available suggestions.</p>
+</div>
+<div class="paragraph">
+<p>E.g.: with <code>addTutorial m/GE</code> in the input box, pressing "CTRL" changes the displayed suggestion to <code>R1000</code>, <code>Q1000</code>, etc., depending on which modules beginning with "GE" were previously added to the application. Pressing "TAB" then changes the input box value to <code>addTutorial m/GE_1000</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-history"><a class="link" href="#command-history">Command History</a></h3>
+<div class="paragraph">
+<p>Every command entered into T.A.rence is saved. Press the "UP" key to bring up older commands and the "DOWN" key to move back to more recent ones.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="em-features-em"><a class="link" href="#em-features-em"><em>Features</em></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="adding-a-tutorial-slot-code-addtutorial-code"><a class="link" href="#adding-a-tutorial-slot-code-addtutorial-code">Adding a Tutorial Slot : <code>addTutorial</code></a></h3>
+<div class="paragraph">
+<p>Adds a tutorial slot into the specified module.<br>
+Pre-condition: Module must already exist inside application. <br>
+Explanation: Adds a tutorial called Tutorial-01 which starts at 1PM, lasts for 60 minutes,
+             and occurs every Monday during weeks 1,2, and 3 into module CS1010.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addTutorial tn/[TUTORIAL_NAME] st/[START_TIME] dur/[TUTORIAL_DURATION] d/[TUTORIAL_DAY] w/[TUTORIAL_WEEKS] m/[MODULE_CODE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#enhancements">Enhancements</a>]</p>
-</li>
-<li>
-<p>Parts of the [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/UserGuide.adoc#3-features">main features</a>]</p>
+<p><code>addTutorial tn/Tutorial-01 st/1300 dur/60 d/Mon w/1,2,3 m/CS1010S</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>START_TIME is in the format hhmm.<br>
+TUTORIAL_DURATION is in minutes</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Other input options for <code>weeks</code> field:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>w/even</code> - weeks 4, 6, 8, 10, 12</p>
+</li>
+<li>
+<p><code>w/odd</code> - weeks 3, 5, 7, 9, 11, 13</p>
+</li>
+<li>
+<p><code>w/x-y</code> - weeks x to y inclusive, where x and y are integers from 1 to 13 inclusive</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Omit <code>w/</code> field for the default tutorial weeks (3-13 inclusive).</p>
+</div>
+<div class="paragraph">
+<p>Command synonyms: <code>addtut</code>, <code>addtutorial</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -155,18 +283,504 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="em-system-design-logic-component-em"><a class="link" href="#em-system-design-logic-component-em"><em>System Design - Logic Component</em></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicRegularCommandClassDiagram.png" alt="LogicRegularCommandClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Logic Component (for regular commands only)</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/blob/master/src/main/java/seedu/tarence/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>ApplicationParser</code> class to parse the user command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deleteStudent i/1")</code> API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+</div>
+<div class="title">Figure 2. Interactions Inside the Logic Component for the <code>deleteStudent i/1</code> Command</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Besides these main commands, <code>Logic</code> also handles autocorrect and autocomplete functions in response to user input. These are described in sections 3.1 and 3.2 respectively.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="em-enhancements-autocomplete-autocorrect-em"><a class="link" href="#em-enhancements-autocomplete-autocorrect-em"><em>Enhancements - Autocomplete &amp; Autocorrect</em></a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">Autocomplete feature</a></h3>
+<div class="paragraph">
+<p>Autoomplete provides an autofill feature similar to that found in most common CLIs.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicAutocompleteClassDiagram.png" alt="LogicAutocompleteClassDiagram">
+</div>
+<div class="title">Figure 3. Structure of the Autocomplete portion of the Logic component</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>Autocomplete is implemented at the <code>Parser</code> level. When the user presses the "TAB" key, <code>AutoCompleteHandler</code>  handles the processing of the input, as opposed to <code>ApplicationParser</code> when the "ENTER" key is pressed.</p>
+</div>
+<div class="paragraph">
+<p><code>PartialInputParser#parse</code> is responsible for the actual parsing of the input string. It calls <code>ArgumentTokenizer#tokenizeLastArgument</code> to find only the last present prefix and its associated value, then uses the appropriate method in <code>Finder</code> to get a list of all values corresponding to the prefix type in the application that begin with the detected partial input. Should this prefix be one not supported by Autocomplete (e.g. <code>i/</code> for a purely numerical input), an error message is shown to the user.</p>
+</div>
+<div class="paragraph">
+<p><code>AutocompleteHandler#handle</code> is responsible for determining the correct autofilled string. If the user presses "TAB" multiple times successively, it cycles through the available autofill options; otherwise, it gets the list of options from <code>PartialInputParser</code> and returns the first one. The activity flow is summarised below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocompleteActivity.png" alt="AutocompleteActivity">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocorrect-feature"><a class="link" href="#autocorrect-feature">Autocorrect feature</a></h3>
+<div class="paragraph">
+<p>Autocorrect lets T.A.rence find similar commands to the user&#8217;s input, allowing it to catch minor typing mistakes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicAutocorrectClassDiagram.png" alt="LogicAutocorrectClassDiagram">
+</div>
+<div class="title">Figure 4. Structure of the Autocorrect portion of the Logic component</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>Autocorrect is implemented at the <code>Command</code> level: when <code>Command</code> objects are executed, they attempt to find their data values from the application&#8217;s storage. If these values are not found, they search for lexically similar alternatives, and construct new `Command`s with these suggested values. The user is then prompted to choose one of these suggestions via a single numerical input.</p>
+</div>
+<div class="paragraph">
+<p>A new <code>SelectSuggestionCommand</code> is used to represent the user&#8217;s selection. Unlike other commands it has no keyword, and can only be triggered when there are existing suggested commands being temporarily cached. Should the user choose not to pick any of the options, the cached commands are deleted and can no longer be triggered subsequently.</p>
+</div>
+<div class="paragraph">
+<p>Autocorrect is restricted to input fields that are not strictly numerical, since it makes no sense to correct, for example, index or time inputs.</p>
+</div>
+<div class="paragraph">
+<p>Below is an activity diagram showing the creation of suggested autocorrect commands when a command is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocorrectActivityCreate.png" alt="AutocorrectActivityCreate">
+</div>
+</div>
+<div class="paragraph">
+<p>The suggested commands are presented to the user, each tagged with an index number. The user is prompted to select one option by entering its corresponding number.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocorrectActivityExecute.png" alt="AutocorrectActivityExecute">
+</div>
+</div>
+<div class="paragraph">
+<p>When a valid option is selected, the <code>execute()</code> method in <code>SelectSuggestionCommand</code> retrieves the specified command, then calls its <code>execute()</code> method. The sequence diagram below illustrates a sample run of the program where `AddStudentCommand`s are being autocorrected.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocorrectSequence.png" alt="AutocorrectSequence">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifelines for <code>SelectSuggestionCommand</code> and <code>AddStudentCommand</code> should end at their destroy markers (X) but due to a limitation of PlantUML, the lifelines reach the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="em-use-cases-em"><a class="link" href="#em-use-cases-em"><em>Use Cases</em></a></h3>
+<h3 id="use-case-new-tutorial-entry" class="discrete">Use case: New tutorial entry</h3>
+<div class="paragraph">
+<p>Precondition: User selects the command to add a new tutorial.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new tutorial to a selected module.</p>
+</li>
+<li>
+<p>System adds the tutorial to the given module.</p>
+</li>
+<li>
+<p>System displays the newly added tutorial to the tutorial list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given tutorial already exists.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>System Design: [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#Design-Logic">Logic Component</a>]</p>
+<p>1a1. System shows an error message showing that the given tutorial already exists.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Enhancements: [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocomplete-feature">Autocomplete</a>], [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#autocorrect-feature">Autocorrect</a>]</p>
+<p>1b. The given module does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System searches for similar modules in the application to the given module.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a. System finds one or more similar modules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a1. System suggests alternative values to user.</p>
 </li>
 <li>
-<p>Parts of [<a href="https://github.com/AY1920S1-CS2103-T14-2/main/blob/master/docs/DeveloperGuide.adoc#appendix-c-use-cases">Appendix C: Use Cases</a>]</p>
+<p>1b1a2. User selects one of the options.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b1b. System finds no similar modules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1b1. System shows an error message showing that the given module does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given input is in an invalid format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-deleting-tutorials" class="discrete">Use case: Deleting tutorials</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong>: User selects the command to delete a tutorial.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to a delete a tutorial of a given index.</p>
+</li>
+<li>
+<p>System deletes the tutorial.</p>
+</li>
+<li>
+<p>System displays a confirmation message of the deletion.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The entered index is out of range.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. The system displays an error message and alerts the user that their input is out of range.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The entered value for the index is negative, or not a parsable integer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System displays an error message along with a prompt on the correct command usage.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The tutorial to be deleted contains one or more students.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1c1. System displays a message informing the user that the tutorial is not empty, and prompts for confirmation.</p>
+</li>
+<li>
+<p>1c2. User confirms the delete action.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-new-student-entry" class="discrete">Use case: New student entry</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong>: User selects the command to add a new student.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new student into the selected tutorial and module.</p>
+</li>
+<li>
+<p>System adds the new student into the selected tutorial and module.</p>
+</li>
+<li>
+<p>System displays the student&#8217;s particulars under the student list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given student already exists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System shows an error message that the given student already exists within the selected
+tutorial and module.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given module or tutorial does not exist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System searches for similar module-tutorial combinations in the application to the given module and tutorial.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a. System finds one or more similar combinations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1a1. System suggests alternative values to user.</p>
+</li>
+<li>
+<p>1b1a2. User selects one of the options.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b1b. System finds no similar combinations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1b1. System shows an error message showing that the given module or tutorial does not exist.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1d. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1d1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-mark-class-attendance" class="discrete">Use case: Mark class attendance.</h3>
+<div class="paragraph">
+<p><strong>Preconditions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User selects the command to mark a tutorial class' attendance.</p>
+</li>
+<li>
+<p>The given tutorial-module combination exists in the system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to enter attendance for a student in a particular tutorial and module for particular week.</p>
+</li>
+<li>
+<p>System records attendance for the student.</p>
+</li>
+<li>
+<p>System displays confirmation message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No student name is supplied.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System displays a student in the tutorial and prompts user to mark attendance for that student.</p>
+</li>
+<li>
+<p>1a2. User enters attendance for displayed student.</p>
+<div class="paragraph">
+<p>Steps 1a1 and 1a2 are repeated for each student in the tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given input is in an invalid format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System shows an error message showing the correct format to add a module.</p>
+<div class="paragraph">
+<p>User case ends.</p>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:06:58 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>
