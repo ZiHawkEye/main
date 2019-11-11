@@ -114,12 +114,12 @@ Even then, the loading of the all the data into T.A.rence at initialization is n
 This is partly because extraneous elements (Lectures, Venues) have been filtered out in the cached data to reduce file size.</p>
 </li>
 <li>
-<p>Retrieval of NUSMods tutorials after the initialization is also efficient since the cached data is loaded into a nested HashMap that has keys in the following order:
+<p>Retrieval of NUSMods tutorials after the initialization is also efficient since the cached data is loaded into a data structure of nested HashMaps that has keys in the following order:
 Module code, Semester, Lesson Type(Sectionals, Tutorials, Labs) and finally a unique ClassNo.</p>
 </li>
 <li>
 <p>The primary challenge in implementing the importing of tutorials was ensuring the compatibility between the cached data and the Tutorial Class already defined in Application.
-This required delving into the reams of data to understand the general structure of the NUSMods JSON data, as well as reading existing API documentation.</p>
+This required delving into NUSMods data to understand the general structure of the JSON, as well as reading existing API documentation.</p>
 </li>
 </ul>
 </div>
@@ -198,16 +198,6 @@ This required delving into the reams of data to understand the general structure
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
 <h3 id="import-tutorials-via-nusmods-url-code-import-code"><a class="link" href="#import-tutorials-via-nusmods-url-code-import-code">Import tutorials via NUSMods url: <code>import</code></a></h3>
 <div class="paragraph">
@@ -500,16 +490,6 @@ The filename field is optional and the tutorial name will be specified as the fi
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
 <div class="imageblock">
@@ -620,4 +600,4 @@ Errors will be thrown if the tutorial/module/student cannot be found, or if the 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:44:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:52:56 UTC</div></div></div></body></html>
