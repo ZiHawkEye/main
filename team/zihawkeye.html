@@ -220,6 +220,37 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example of marking attendance of student:
+Inputting "markAttendance n/Mark tn/Lab Session m/CS1010S w/7" will toggle the attendance of Mark in tutorial of name "Lab Session" and the attendance table of the tutorial will be displayed accordingly.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MarkAttendance1.png" alt="MarkAttendance1" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MarkAttendance2.png" alt="MarkAttendance2" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Example of marking attendance of tutorial:
+When "markAttendance tn/Lab Session m/CS1010S w/7" is inputted, the application will prompt the user to mark/toggle the attendance of the first student in the tutorial.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MarkAttendance3.png" alt="MarkAttendance3" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The user may input "y" or "n", after which the command will be executed/cancelled respectively and the application will prompt the user to mark the attendance of the next student.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MarkAttendance4.png" alt="MarkAttendance4" width="600">
+</div>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -230,19 +261,6 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 <div class="paragraph">
 <p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
 Specifying the student name marks/toggles the attendance of a student, otherwise the entire tutorial will have their attendance marked.</p>
-</div>
-<div class="paragraph">
-<p>Example of marking attendance of student:
-Inputting "markAttendance n/Mark tn/Lab Session m/CS1010S w/7" will toggle the attendance of Mark in tutorial of name "Lab Session" and the attendance table of the tutorial will be displayed accordingly.
-image::MarkAttendance1.png[width="400"]
-image::MarkAttendance2.png[width="400"]</p>
-</div>
-<div class="paragraph">
-<p>Example of marking attendance of tutorial:
-When "markAttendance tn/Lab Session m/CS1010S w/7" is inputted, the application will prompt the user to mark/toggle the attendance of the first student in the tutorial.
-image::MarkAttendance3.png[width="400"]
-The user may input "y" or "n", after which the command will be executed/cancelled respectively and the application will prompt the user to mark the attendance of the next student.
-image::MarkAttendance4.png[width="400"]</p>
 </div>
 <div class="paragraph">
 <p>Command Synonyms:  <code>mark</code>, <code>marka</code>, <code>markatt</code></p>
@@ -302,65 +320,6 @@ The filename field is optional and the tutorial name will be specified as the fi
 <div class="content">
 <div class="paragraph">
 <p>Command Synonyms: <code>export</code>, <code>exporta</code>, <code>exportatt</code>, <code>exportattendance</code></p>
-</div>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="set-an-assignment-score-for-a-student-code-setassignmentscore-code"><a class="link" href="#set-an-assignment-score-for-a-student-code-setassignmentscore-code">Set an Assignment score for a Student : <code>setAssignmentScore</code></a></h3>
-<div class="paragraph">
-<p>Sets an Assignment score for a Student.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>setAssignmentScore</code> i/[TUTORIAL_INDEX] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[score]</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>setAssignmentScore i/1 i/1 i/1 score/10</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can use either tutorial index or tutorial name with module code to specify the tutorial.<br>
-Tutorial, Assignment, Student indexes are specified in a fixed order.<br>
-This will be in the format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>setAssignmentScore tn/[TUTORIAL_NAME] m/[MOD_CODE] i/[ASSIGNMENT_INDEX] i/[STUDENT_INDEX] score/[SCORE]</code></p>
-</li>
-<li>
-<p>E.g setAssignmentScore tn/Lab 1 m/CS1010 i/1 i/1 score/10</p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Command synonyms: <code>sets</code>, <code>setscore</code>, <code>setsc</code>, <code>setassignmentscore</code></p>
 </div>
 </div>
 </div>
@@ -440,228 +399,6 @@ This will be in the format:</p>
 </div>
 <div class="paragraph">
 <p>Command synonyms: <code>adde</code>, <code>addev</code>, <code>addevnt</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-an-event-code-deleteevent-code"><a class="link" href="#deleting-an-event-code-deleteevent-code">Deleting an Event : <code>deleteEvent</code></a></h3>
-<div class="paragraph">
-<p>Adds an Event to a Tutorial.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addEvent</code> i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>deleteEvent i/1 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
-</li>
-<li>
-<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can use also use tutorial name with module code to specify the Tutorial.<br>
-* This will be the format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>deleteEvent tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] sd/[START_TIME] ed/[END_TIME]</p>
-</li>
-<li>
-<p>Eg. deleteEvent tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can also use i/[EVENT INDEX] to specify the Event, instead of inputting Event details.<br>
-This will be the format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>deleteEvent i/[TUTORIAL_INDEX] t/[EVENT_INDEX]</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Command synonyms: <code>delevnt</code>, <code>dele</code>, <code>delev</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-event-code-editevent-code"><a class="link" href="#editing-an-event-code-editevent-code">Editing an Event : <code>editEvent</code></a></h3>
-<div class="paragraph">
-<p>Edits an Event in a Tutorial.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editEvent</code> i/[EVENT_INDEX] i/[TUTORIAL_INDEX] n/[EVENT_NAME] sd/[START_DATE] ed/[END_DATE]</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>editEvent i/1 i/1 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
-</li>
-<li>
-<p>START_DATE and END_DATE follows the format of dd-mm-yy hhmm e.g 31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can also use the tutorial name with module code to specify the Tutorial.<br>
-This will be the format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>i/TARGET [EVENT_INDEX] tn/[TUTORIAL_NAME] m/[MODULE_CODE] n/[EVENT_NAME] (OPTIONAL)
-sd/[START_TIME] (OPTIONAL) ed/[END_TIME] (OPTIONAL)</p>
-</li>
-<li>
-<p>E.g editEvent i/1 tn/Lab 1 m/CS1010 n/Lab01 sd/09-11-2001 0000 ed/31-10-2019 2359</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Event detail fields (EVENT_NAME, START_DATE, END_DATE) are optional.</p>
-</div>
-<div class="paragraph">
-<p>Command synonyms: <code>edev</code>, <code>editev</code>, <code>edite</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="list-events-in-a-tutorial-code-listevents-code"><a class="link" href="#list-events-in-a-tutorial-code-listevents-code">List Events in a Tutorial : <code>listEvents</code></a></h3>
-<div class="paragraph">
-<p>Lists Events in a Tutorial.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listEvents</code> i/[TUTORIAL_INDEX]</p>
-</li>
-<li>
-<p>TUTORIAL_INDEX is a non-negative integer (&gt;= 0)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>listEvents i/1</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can use either tutorial index or tutorial name with module code to specify the Tutorial.<br>
-This will be in the format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listEvents</code> tn/[TUTORIAL_NAME] m/[MODULE_CODE]</p>
-</li>
-<li>
-<p>Eg: listEvents tn/Lab 1 m/CS1010</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Command synonyms: <code>liste</code>, <code>listev</code>, <code>listevnt</code></p>
 </div>
 </td>
 </tr>
@@ -828,4 +565,4 @@ Errors will be thrown if the tutorial/module/student cannot be found, or if the 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:47:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:15:40 UTC</div></div></div></body></html>
