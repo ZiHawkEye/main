@@ -113,6 +113,14 @@ The application will determine the dates of completed tutorials from the current
 Even then, the loading of the all the data into T.A.rence at initialization is not too computationally/memory intensive, without significant lag.
 This is partly because extraneous elements (Lectures, Venues) have been filtered out in the cached data to reduce file size.</p>
 </li>
+<li>
+<p>Retrieval of NUSMods tutorials after the initialization is also efficient since the cached data is loaded into a nested HashMap that has keys in the following order:
+Module code, Semester, Lesson Type(Sectionals, Tutorials, Labs) and finally a unique ClassNo.</p>
+</li>
+<li>
+<p>The primary challenge in implementing the importing of tutorials was ensuring the compatibility between the cached data and the Tutorial Class already defined in Application.
+This required delving into the reams of data to understand the general structure of the NUSMods JSON data, as well as reading existing API documentation.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -612,4 +620,4 @@ Errors will be thrown if the tutorial/module/student cannot be found, or if the 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:31:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:44:20 UTC</div></div></div></body></html>
