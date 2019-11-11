@@ -4,7 +4,7 @@
 <h2 id="project-t-a-rence"><a class="link" href="#project-t-a-rence">PROJECT: T.A.rence</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I&#8217;m <em>Kai Zhe</em>. I&#8217;m currently pursuing a major in Computer Science at the National University of Singapore(NUS).</p>
+<p>I&#8217;m Kai Zhe, a student currently pursuing a major in Computer Science at the National University of Singapore(NUS).</p>
 </div>
 </div>
 </div>
@@ -12,9 +12,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>T.A.rence is a class management system for teaching assistants in NUS. Designed for the 'super TA',
-it tracks all classes taught by the TA and all relevant information pertaining to each class, such as upcoming events,
-student participation, assignment scores and the number of hours taught for each module.</p>
+<p>T.A.rence is a class management system for teaching assistants in NUS. It tracks all classes taught by the TA and all relevant information pertaining to each class,
+ such as upcoming events, student participation, assignment scores and the number of hours taught for each module.</p>
 </div>
 </div>
 </div>
@@ -22,9 +21,9 @@ student participation, assignment scores and the number of hours taught for each
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="strong-major-enhancements-strong-added-strong-model-skeleton-and-importtutorialscommand-attendance-assignment-event-related-logic-commands-strong"><a class="link" href="#strong-major-enhancements-strong-added-strong-model-skeleton-and-importtutorialscommand-attendance-assignment-event-related-logic-commands-strong"><strong>Major Enhancements</strong>: added <strong>Model skeleton and ImportTutorialsCommand, Attendance/Assignment/Event-related logic commands</strong></a></h3>
+<h3 id="strong-major-enhancement-strong-added-strong-model-skeleton-strong"><a class="link" href="#strong-major-enhancement-strong-added-strong-model-skeleton-strong"><strong>Major Enhancement</strong>: added <strong>Model skeleton</strong></a></h3>
 <div class="sect3">
-<h4 id="most-of-the-model-classes-in-t-a-rence-importtutorialscommand-markattendancecommand-and-exportattendancecommand-add-delete-assignments-and-setassignmentscorecommand-add-delete-edit-list-events"><a class="link" href="#most-of-the-model-classes-in-t-a-rence-importtutorialscommand-markattendancecommand-and-exportattendancecommand-add-delete-assignments-and-setassignmentscorecommand-add-delete-edit-list-events">Most of the model classes in T.A.rence, ImportTutorialsCommand, MarkAttendanceCommand and ExportAttendanceCommand, add/delete Assignments and SetAssignmentScoreCommand, add/delete/edit/list Events</a></h4>
+<h4 id="created-models-used-in-t-a-rence"><a class="link" href="#created-models-used-in-t-a-rence">Created models used in T.A.rence</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -32,13 +31,60 @@ student participation, assignment scores and the number of hours taught for each
 <div class="ulist">
 <ul>
 <li>
-<p>Created most of the model classes used in the T.A.rence application (Modules, Tutorials, Students, etc.)</p>
+<p>Created most of the model classes used in the T.A.rence application (Modules, Tutorials, Students, Assignments, Attendance)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Enables the user to record students' participation, tutorial assignments, upcoming events and hours logged for a tutorial.</p>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The models form the backbone of the Application and defines the operations it can perform.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>ImportTutorialsCommand makes use of NUSMods data to automatically import modules based on the NUSMods url.</p>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Many of the models are interdependent on each other, eg. deleting a Tutorial will also delete all the Students contained within it.</p>
+</li>
+<li>
+<p>The interdependence, while useful feature-wise, also leads to high coupling and it was challenging to maintain consistency within
+the different models/data structures.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-major-enhancement-strong-added-importtutorialscommand-attendance-assignment-event-related-logic-commands"><a class="link" href="#strong-major-enhancement-strong-added-importtutorialscommand-attendance-assignment-event-related-logic-commands"><strong>Major Enhancement</strong>: Added ImportTutorialsCommand, Attendance/Assignment/Event-related logic commands</a></h3>
+<div class="sect3">
+<h4 id="added-the-ability-for-the-user-to-import-tutorials-via-an-nusmods-shared-url-mark-export-attendance-of-students-in-a-tutorial-and-crud-features-for-assignments-and-events"><a class="link" href="#added-the-ability-for-the-user-to-import-tutorials-via-an-nusmods-shared-url-mark-export-attendance-of-students-in-a-tutorial-and-crud-features-for-assignments-and-events">Added the ability for the user to import tutorials via an NUSMods shared url, mark/export attendance of students in a tutorial and CRUD features for Assignments and Events.</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Summary of the features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enables the user to record and export students' attendance (Refer to the user guide below)</p>
+</li>
+<li>
+<p>Enables the user to track tutorial assignments and students' performance</p>
+</li>
+<li>
+<p>Enables the user to keep track of events(both past and upcoming) such as tutorials, exam dates, submission deadlines as well as hours logged for easier payment claims.</p>
+</li>
+<li>
+<p>ImportTutorialsCommand makes use of NUSMods data to automatically import modules based on the NUSMods url. It does not require an internet connection.</p>
 </li>
 </ul>
 </div>
@@ -59,19 +105,8 @@ are essential features that cater to any TA in NUS.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Many of the features are interdependent on each other and do not need explicit input from the user</p>
-<div class="ulist">
-<ul>
-<li>
-<p>eg. Tutorial lessons are added to the Events automatically if the semester start date is defined,
-so hours logged for each Tutorial can be updated automatically based on the current date.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>The interdependence, while useful feature-wise, also leads to high coupling and it was challenging to maintain consistency within
-the different models/data structures.</p>
+<p>The user need only define the semester start date for the hours logged in a tutorial to be updated automatically.
+The application will determine the dates of completed tutorials from the current date, the semester start date to then calculate the hours logged by the TA.</p>
 </li>
 <li>
 <p>The application relies on precached NUSMods data of all existing tutorials in AY 2019-2020, hence it does not rely on a internet connection.
@@ -86,7 +121,7 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 <div class="ulist">
 <ul>
 <li>
-<p>NUS modules and tutorials data was retrieved from NUSMods database {https://api.nusmods.com/v2/2019-2020/}</p>
+<p>NUS modules and tutorials data was retrieved from NUSMods database [<a href="https://api.nusmods.com/v2/2019-2020/">NUSMods</a>]</p>
 </li>
 </ul>
 </div>
@@ -103,6 +138,15 @@ This is partly because extraneous elements (Lectures, Venues) have been filtered
 </li>
 <li>
 <p><strong>Code contributed</strong>:</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/commits?author=zihawkeye">Commits</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S1-CS2103-T14-2/main/pulls?q=is%3Apr+author%3AZiHawkEye+is%3Aclosed">Pull Requests</a>]</p>
+</li>
+<li>
+<p>[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=zihawkeye&amp;sort=totalCommits%20dsc&amp;sortWithin=totalCommits%20dsc&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=ZiHawkEye&amp;tabRepo=AY1920S1-CS2103-T14-2%2Fmain%5Bmaster%5D">RepoSense Code Contribution Dashboard</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -565,4 +609,4 @@ Errors will be thrown if the tutorial/module/student cannot be found, or if the 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:15:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:22:33 UTC</div></div></div></body></html>
