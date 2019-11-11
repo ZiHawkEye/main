@@ -87,16 +87,6 @@ collaboration with other components of the application was highly needed.</p>
 </ul>
 </div>
 </li>
-<li>
-<p>Credits:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Code on changing a hash-map to a tree-map is obtained from here {https://www.geeksforgeeks.org/program-to-convert-hashmap-to-treemap-in-java/}</p>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 </div>
@@ -131,18 +121,13 @@ collaboration with other components of the application was highly needed.</p>
 <ul>
 <li>
 <p>This enhancement is different from the one suggested in AB3.
-+ During the operation of the application, temporary state files will be stored on the hard
+During the operation of the application, temporary state files will be stored on the hard
 disk. This modification allows for multiple states to be stored, without affecting
 valuable RAM.</p>
 </li>
 <li>
 <p>Once an undo command is executed, the previous state is then loaded into the system memory
 from the saved json state file.</p>
-</li>
-<li>
-<p>The implementation too was challenging as it involves proper serializing and de-serializing
-of the json file, properly ensuring that a state change is reflected correctly and loading the data
-from json and re-creating the proper specified model.</p>
 </li>
 </ul>
 </div>
@@ -173,19 +158,6 @@ from json and re-creating the proper specified model.</p>
 </li>
 <li>
 <p>Assisted to review peer code before merging</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Edited User Guide: <a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/27">#27</a></p>
-</li>
-<li>
-<p>Edited Developer Guide: <a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/27">#27</a>, <a href="https://github.com/AY1920S1-CS2103-T14-2/main/pull/93">#93</a></p>
 </li>
 </ul>
 </div>
@@ -393,12 +365,11 @@ TUTORIAL_DURATION is in minutes</p>
 </tr>
 </table>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>== Contributions to the Developer Guide</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -409,15 +380,16 @@ TUTORIAL_DURATION is in minutes</p>
 </tr>
 </tbody>
 </table>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Undo feature
-The undo feature allows the user to undo multiple commands at once.</p>
 </div>
-<div class="paragraph">
-<p>==== Implementation</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="undo-feature"><a class="link" href="#undo-feature">Undo feature</a></h3>
+<div class="paragraph">
+<p>The undo feature allows the user to undo multiple commands at once.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
 <p>The undo mechanism is facilitated by <code>JsonStateStorage</code>.
 It extends <code>TARence</code> with an undo history, stored externally as a <code>stateXX.json</code> file
@@ -619,12 +591,11 @@ the previous state, <code>JsonStateStorage#saveApplication()</code> will not sav
 <img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
 </div>
-<div class="paragraph">
-<p>===== Aspect: How undo &amp; redo executes</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -681,9 +652,9 @@ application is closed or started, it will automatically clear any state files.</
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: Data structure to support the undo/redo commands</p>
 </div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -731,57 +702,6 @@ redundant data.</p>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div id="Design-Storage" class="paragraph">
-<p>=== Storage component</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram">
-</div>
-<div class="title">Figure 1. Structure of the Storage Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Storage</code> component,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
-</li>
-<li>
-<p>can save the <code>T.A.rence</code> application data in json format and read it back.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>==== Implementation
-When the application is being saved, a list of modules will be serialized into a Json object and written to the file.</p>
-</div>
-<div class="paragraph">
-<p>==== Design Considerations
-Although the application has 3 core components (modules, tutorials and students), to prevent redundant data being written
-and save on storage space, only the modules will be serialized and saved.</p>
-</div>
-<div class="paragraph">
-<p>This is as the information encapsulated in modules can be used to instantiate tutorial and student objects.</p>
-</div>
-<div class="paragraph">
-<p>A key assumption here is that during the operational usage of the application, data stored in the tutorials and students objects
-correspond to the module object. Ie there are no tutorials or student objects which exist without a corresponding
-module object.</p>
-</div>
-<div class="paragraph">
-<p>Future versions of storage will support saving of Assignment objects.</p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Code contributed</strong>:</p>
 </li>
@@ -791,4 +711,7 @@ module object.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:22:33 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:23:10 UTC</div></div></div></body></html>
